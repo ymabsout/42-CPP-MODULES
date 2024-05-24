@@ -30,27 +30,26 @@ int main ()
             std::string a,b,c,d,e;
             std::cout << "Enter User First Name"  << std::endl;
             getline(std::cin >> std::ws, a);
-            book.p[i].first_name.assign(a);
+            book.p[i].set_name(a, 1);
             std::cout << "Enter User Last Name"  << std::endl;
             getline(std::cin >> std::ws, b);
-            book.p[i].last_name = b;
+            book.p[i].set_name(b, 2);
             std::cout << "Enter User Nickname"  << std::endl;
             getline(std::cin >> std::ws, c);
-            book.p[i].nickname = c;
+            book.p[i].set_name(c, 3);
             std::cout << "Enter Phone Number" << std::endl;
             getline(std::cin >> std::ws, d);
-            book.p[i].phone_number = d;
+            book.p[i].set_name(d, 4);
             std::cout << "Enter Your Darkest secrect" << std::endl;
             getline(std::cin >> std::ws, e);
-            book.p[i].secret = e;
+            book.p[i].set_name(e, 5);
             i++;
         }
         else if (cmd == "SEARCH"){
             for (int j = 0; j < i ; j++){
-                std::string f = book.p[j].first_name;
-                std::cout << f << std::endl;
-                std::string l = book.p[j].last_name;
-                std::string n = book.p[j].nickname;
+                std::string f = book.p[j].get_val(1);
+                std::string l = book.p[j].get_val(2);
+                std::string n = book.p[j].get_val(3);
                 if (f.size() >= 10){
                     f.resize(10);
                     f[9] = '.';
@@ -63,7 +62,8 @@ int main ()
                     n.resize(10);
                     n[9] = '.';
                 }
-                std::cout << std::setfill(' ') << j+1 <<  std::setw(10) << "|" << std::setw(10) << f << "|" << l << "|" << n << std::endl;
+                std::cout << std::setfill(' ') << std::setw(10)<<  j+1 << "|" << std::setw(10) << f \
+                    << "|" << std::setw(10) << l << "|" << std::setw(10) << n << std::endl;
             }
             if (i){
                 std::cout <<"Enter index of the contact" << std::endl;
@@ -73,11 +73,11 @@ int main ()
                     std::cout << "Enter a correct index";
                 else
                 {
-                    std::cout << "First Name : " << book.p[k-1].first_name << std::endl;
-                    std::cout << "Last Name : " << book.p[k-1].last_name << std::endl;
-                    std::cout << "Nickname : " << book.p[k-1].nickname << std::endl;
-                    std::cout << "Phone number : " << book.p[k-1].phone_number << std::endl;
-                    std::cout << "Darkest Secret : " << book.p[k-1].secret << std::endl;
+                    std::cout << "First Name : " << book.p[k-1].get_val(1) << std::endl;
+                    std::cout << "Last Name : " << book.p[k-1].get_val(2) << std::endl;
+                    std::cout << "Nickname : " << book.p[k-1].get_val(3) << std::endl;
+                    std::cout << "Phone number : " << book.p[k-1].get_val(4) << std::endl;
+                    std::cout << "Darkest Secret : " << book.p[k-1].get_val(5) << std::endl;
                 }
             }
             else 
