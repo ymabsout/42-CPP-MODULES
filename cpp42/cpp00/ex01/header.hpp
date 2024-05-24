@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   header.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 11:20:31 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/05/24 18:03:20 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/05/24 11:35:47 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/05/24 18:19:29 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 #include <string>
 #include <iomanip>
 
-int main (int ac, char **av)
-{
-    (void)av;
-    if (ac == 1)
-    {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-        return (0);
-    }
-    int i = 0;
-    int j;
+class contact {
+	private:
+		std::string secret;
+		std::string	first_name;
+		std::string	last_name;
+		std::string	nickname;
+		std::string	phone_number;
+	public:
+		int			index;
+};
 
-    while (av[++i])
-    {
-        j = -1;
-        while (av[i][++j])
-            std::cout << (char)toupper(av[i][j]);
-    }
-    std::cout << std::endl;
-}
+
+class phonebook{
+	public:
+	contact p[7];
+};
