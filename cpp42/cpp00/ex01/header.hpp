@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:47 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/05/24 18:19:29 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/05/25 14:44:05 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class contact {
 		std::string	nickname;
 		std::string	phone_number;
 	public:
-		int			index;
+		int		index;
 		void	set_name(std::string l, int o){
 			if (o == 1)
 				first_name = l;
