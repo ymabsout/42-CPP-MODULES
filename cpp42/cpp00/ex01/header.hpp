@@ -9,6 +9,8 @@
 /*   Updated: 2024/05/25 14:44:05 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef HEADER_HPP
+#define HEADER_HPP
 
 #include <iostream>
 #include <string>
@@ -23,33 +25,18 @@ class contact {
 		std::string	phone_number;
 	public:
 		int		index;
-		void	set_name(std::string l, int o){
-			if (o == 1)
-				first_name = l;
-			else if (o == 2)
-				last_name = l;
-			else if (o == 3)
-				nickname = l;
-			else if (o == 4)
-				phone_number = l;
-			else
-			 	secret = l;
-		}
-		std::string	get_val(int o){
-			if (o == 1)
-				return (first_name);
-			else if (o == 2)
-				return (last_name);
-			else if (o == 3)
-				return (nickname);
-			else if (o == 4)
-				return (phone_number);
-			else
-			 	return (secret);
-		}
+		void set_firstname(std::string);
+		void set_secname(std::string);
+		std::string	get_firstname() const;
+		std::string	get_last_name()const;
+		std::string	get_nickname()const;
+		std::string get_number()const;
 };
 
 class phonebook{
 	public:
 	contact p[7];
 };
+
+
+#endif
