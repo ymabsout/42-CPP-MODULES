@@ -1,6 +1,6 @@
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = phonebook.cpp
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
+SRCS = phonebook.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 HEADER = header.hpp
 NAME = phonebook
@@ -8,10 +8,10 @@ NAME = phonebook
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -fsanitize=address -g  $(OBJS) -o $(NAME)
 
-%.o : %.c
-	$(CC) $(CFLAGS) $< -o $@
+%.o : %.cpp
+	$(CC) -fsanitize=address -g  $(CFLAGS) $< -o $@
 
 clean : 
 	rm -f $(OBJS)

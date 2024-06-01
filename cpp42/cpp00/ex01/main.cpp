@@ -6,11 +6,12 @@ int main ()
     int i;
 
     i = 0;
-    while (true)
+    std::string cmd;
+    std::cout << "Enter your command" << std::endl;
+    while (std::cin >> cmd)
     {
-        std::cout << "Enter your command" << std::endl;
-        std::string cmd;
-        std::cin >> cmd;
+        // std::string cmd;
+        // std::cin >> cmd;
         if (cmd == "ADD"){
             if (i >7)
                 i = 0;
@@ -18,48 +19,53 @@ int main ()
             std::string a,b,c,d,e;
             std::cout << "Enter User First Name"  << std::endl;
             getline(std::cin >> std::ws, a);
-            
+            t.set_firstname(a);
             std::cout << "Enter User Last Name"  << std::endl;
             getline(std::cin >> std::ws, b);
-            book.p[i].set_name(b, 2);
+            t.set_secname(b);
             std::cout << "Enter User Nickname"  << std::endl;
             getline(std::cin >> std::ws, c);
-            book.p[i].set_name(c, 3);
+            t.set_nick(c);
             std::cout << "Enter Phone Number" << std::endl;
             getline(std::cin >> std::ws, d);
-            book.p[i].set_name(d, 4);
+            t.set_number(d);
             std::cout << "Enter Your Darkest secrect" << std::endl;
             getline(std::cin >> std::ws, e);
-            book.p[i].set_name(e, 5);
-            i++;
+            t.set_secret(e);
+            if (a.empty() || b.empty() || c.empty() || d.empty() || e.empty()){
+                std::cout << "Do not enter empty arguments" << std::endl;
+            }
+            else{
+                book.p[i] = t;
+                i++;
+            }
         }
         else if (cmd == "SEARCH"){
             for (int j = 0; j < i ; j++){
-                std::string f = book.p[j].get_val(1);
-                std::string l = book.p[j].get_val(2);
-                std::string n = book.p[j].get_val(3);
+                std::string f = book.p[j].get_firstname();
+                std::string l = book.p[j].get_last_name();
+                std::string n = book.p[j].get_nickname();
                 if (f.size() >= 10)
-                    f.substr(0, 8) + '.';
+                    f = f.substr(0, 9) + '.';
                 if (l.size() >= 10)
-                    l.substr(0, 8) + '.';
+                    l = l.substr(0, 9) + '.';
                 if (n.size() >= 10)
-                    n.substr(0, 8) + '.';
-                std::cout << std::setfill(' ') << std::setw(10)<<  j+1 << "|" << std::setw(10) << f \
-                    << "|" << std::setw(10) << l << "|" << std::setw(10) << n << std::endl;
+                    n = n.substr(0, 9) + '.';
+                std::cout << std::setw(10)<<  j+1 << "|" << std::setw(10) << f << "|" << std::setw(10) << l << "|" << std::setw(10) << n << std::endl;
             }
             if (i){
                 std::cout <<"Enter index of the contact" << std::endl;
                 int k;
                 std::cin >> k;
                 if (k <= 0 || k > 8)
-                    std::cout << "Enter a correct index";
+                    std::cout << "Enter a correct index" << std::endl;
                 else
                 {
-                    std::cout << "First Name : " << book.p[k-1].get_val(1) << std::endl;
-                    std::cout << "Last Name : " << book.p[k-1].get_val(2) << std::endl;
-                    std::cout << "Nickname : " << book.p[k-1].get_val(3) << std::endl;
-                    std::cout << "Phone number : " << book.p[k-1].get_val(4) << std::endl;
-                    std::cout << "Darkest Secret : " << book.p[k-1].get_val(5) << std::endl;
+                    std::cout << "First Name : " << book.p[k-1].get_firstname() << std::endl;
+                    std::cout << "Last Name : " << book.p[k-1].get_last_name() << std::endl;
+                    std::cout << "Nickname : " << book.p[k-1].get_nickname() << std::endl;
+                    std::cout << "Phone number : " << book.p[k-1].get_number() << std::endl;
+                    std::cout << "Darkest Secret : " << book.p[k-1].get_secret() << std::endl;
                 }
             }
             else 
