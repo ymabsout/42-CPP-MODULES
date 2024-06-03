@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/03 14:47:12 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/03 20:53:29 by ymabsout         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "header.hpp"
 #include <ios>
 #include <limits>
@@ -24,18 +37,20 @@ int main() {
 			break ;
 		else if (cmd == "SEARCH"){
 			book.display_contacts();
-			std::cout << "Enter index of the contact" << std::endl;
-			int k;
-			std::cin >> k;
-			while (std::cin.fail() || k <= 0 || k > 8){
-				if (std::cin.eof())
-					exit(0);
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cout << "Enter a correct index please" << std::endl;
+			if (book.check_contact(0)){
+				std::cout << "Enter index of the contact" << std::endl;
+				int k;
 				std::cin >> k;
-			}
+				while (std::cin.fail() || k <= 0 || k > 8 || !book.check_contact(k - 1)){
+					if (std::cin.eof())
+						exit(0);
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					std::cout << "Enter a correct index please" << std::endl;
+					std::cin >> k;
+				}
 			book.display_contact_details(k - 1);
+			}
 		} else {
 			std::cout << "Choose ADD , SEARCH or EXIT" << std::endl;
 		}

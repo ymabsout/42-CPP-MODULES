@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:44:34 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/01 18:08:00 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:05:03 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void PhoneBook::add_contact(const Contact& new_contact) {
 }
 
 void PhoneBook::display_contacts() const {
-	for (size_t i = 0; i < contacts.size(); ++i) {
+	for (size_t i = 0; i < current_index; ++i) {
 		std::string f = contacts[i].get_firstname();
 		std::string l = contacts[i].get_lastname();
 		std::string n = contacts[i].get_nickname();
@@ -68,17 +68,12 @@ void PhoneBook::display_contacts() const {
 		if (l.size() >= 10) l = l.substr(0, 9) + '.';
 		if (n.size() >= 10) n = n.substr(0, 9) + '.';
 		std::cout << std::setw(10) << i + 1 << "|"
-				  << std::setw(10) << f << "|"
-				  << std::setw(10) << l << "|"
-				  << std::setw(10) << n << std::endl;
+		<< std::setw(10) << f << "|" << std::setw(10) << l << "|"
+		<< std::setw(10) << n << std::endl;
 	}
 }
 
 void PhoneBook::display_contact_details(int index) const {
-	if (index < 0 || index >= (int)contacts.size()) {
-		std::cout << "Enter a correct index" << std::endl;
-		return;
-	}
 	if (contacts[index].get_firstname().empty()) {
 		std::cout << "Please enter a correct user index" << std::endl;
 		return;
@@ -104,12 +99,29 @@ std::string get_valid_input(const std::string& prompt){
 
 std::string get_valid_number(const std::string& prompt){
 	std::string inp;
-	while (!std::cin.eof() && inp.empty()){
-		std::cout << prompt << std::endl;
+	int d = 0;
+	while (((std::cin && inp.empty()) || !d)){
+		if (std::cin)
+			std::cout << prompt << std::endl;
 		std::getline(std::cin >> std::ws, inp);
+	int n;
+	for (int i = 0; i < inp.size();i++){
+		if (!isnumber(inp[i])){
+			std::cout << "Please enter a valid phone number" << std::endl;
+			d = 2;
+			break ;
+		}
 	}
-	int n = stoi(inp);
-	if (!isnumber(n))
-		std::cout << "Please enter a valid phone number" << std::endl;
+	(d == 2 ) ? (d = 0 ): (d = 1);
+	}
 	return (inp);
+}
+
+int PhoneBook::check_contact(int index) const {
+	if (contacts[index].get_firstname().empty()){
+		std::cout << "You got no contacts in the list" << std::endl;
+		// std::cout << "Enter your command please" << std::endl;
+		return (0);
+	}
+	return (1);
 }

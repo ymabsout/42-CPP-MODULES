@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:47 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/01 15:51:19 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/03 20:33:25 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ public:
     void add_contact(const Contact&);
     void display_contacts() const;
     void display_contact_details(int index) const;
+    int check_contact(int index) const;
 };
 std::string get_valid_input(const std::string& prompt);
 std::string get_valid_number(const std::string& prompt);
