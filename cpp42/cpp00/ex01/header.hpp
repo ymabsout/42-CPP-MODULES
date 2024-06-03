@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:47 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/03 20:33:25 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:09:14 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class PhoneBook {
 private:
     std::array<Contact, 8> contacts;
     int current_index;
+    int track;
 public:
     PhoneBook() : current_index(0) {}
     void add_contact(const Contact&);
