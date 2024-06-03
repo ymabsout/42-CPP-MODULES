@@ -16,32 +16,40 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-
-class contact {
-	private:
-		std::string secret;
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		std::string	phone_number;
-	public:
-		int		index;
-		void set_firstname(std::string);
-		void set_secname(std::string);
-		void set_nick(std::string);
-		void set_number(std::string);
-		void set_secret(std::string);
-		std::string	get_firstname() const;
-		std::string	get_last_name()const;
-		std::string	get_nickname()const;
-		std::string get_number()const;
-		std::string get_secret()const;
+#include <array>
+#include <fstream>
+class Contact {
+private:
+    std::string secret;
+    std::string first_name;
+    std::string last_name;
+    std::string nickname;
+    std::string phone_number;
+public:
+    void set_firstname(const std::string&);
+    void set_lastname(const std::string&);
+    void set_nickname(const std::string&);
+    void set_phone_number(const std::string&);
+    void set_secret(const std::string&);
+    std::string get_firstname() const;
+    std::string get_lastname() const;
+    std::string get_nickname() const;
+    std::string get_phone_number() const;
+    std::string get_secret() const;
 };
 
-class phonebook{
-	public:
-	contact p[7];
+class PhoneBook {
+private:
+    std::array<Contact, 8> contacts;
+    int current_index;
+public:
+    PhoneBook() : current_index(0) {}
+    void add_contact(const Contact&);
+    void display_contacts() const;
+    void display_contact_details(int index) const;
 };
+std::string get_valid_input(const std::string& prompt);
+std::string get_valid_number(const std::string& prompt);
 
 
 #endif

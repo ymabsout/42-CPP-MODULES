@@ -10,8 +10,8 @@ all: $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) -fsanitize=address -g  $(OBJS) -o $(NAME)
 
-%.o : %.cpp
-	$(CC) -fsanitize=address -g  $(CFLAGS) $< -o $@
+%.o : %.c
+	$(CC) $(CFLAGS) -fsanitize=address -g  $(CFLAGS) $< -o $@
 
 clean : 
 	rm -f $(OBJS)
