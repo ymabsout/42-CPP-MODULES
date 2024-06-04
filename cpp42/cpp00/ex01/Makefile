@@ -6,7 +6,7 @@
 #    By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 14:47:22 by ymabsout          #+#    #+#              #
-#    Updated: 2024/06/03 14:47:57 by ymabsout         ###   ########.fr        #
+#    Updated: 2024/06/04 18:07:34 by ymabsout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS)  $(OBJS) -o $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS)  $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS)  $< -o $@
 
 clean : 
 	rm -f $(OBJS)
