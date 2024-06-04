@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:47:12 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/03 20:53:29 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:55:59 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main() {
 	std::string cmd;
 
 	std::cout << "Enter your command" << std::endl;
-	while (std::cin >> cmd) {
+	while (std::getline(std::cin >> std::ws, cmd)) {
 		if (cmd == "ADD"){
 			Contact t;
 			t.set_firstname(get_valid_input("Enter User First Name"));
@@ -40,14 +40,16 @@ int main() {
 			if (book.check_contact(0)){
 				std::cout << "Enter index of the contact" << std::endl;
 				int k;
-				std::cin >> k;
-				while (std::cin.fail() || k <= 0 || k > 8 || !book.check_contact(k - 1)){
+				std::string c;
+				std::getline(std::cin >> std::ws, c);
+				k = book.check_number(c);
+				while (k <= 0 || k > 8 || !book.check_contact(k - 1)){
 					if (std::cin.eof())
 						exit(0);
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << "Enter a correct index please" << std::endl;
-					std::cin >> k;
+					std::string p;
+					std::getline(std::cin, p);
+					k = book.check_number(p);
 				}
 			book.display_contact_details(k - 1);
 			}

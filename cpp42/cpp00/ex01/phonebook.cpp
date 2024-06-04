@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:44:34 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/03 21:05:03 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/04 15:56:06 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,12 @@ std::string Contact::get_secret() const {
 void PhoneBook::add_contact(const Contact& new_contact) {
 	contacts[current_index] = new_contact;
 	current_index = (current_index + 1) % contacts.size();
+	if (this->track <= current_index)
+		this->track = current_index;
 }
 
 void PhoneBook::display_contacts() const {
-	for (size_t i = 0; i < current_index; ++i) {
+	for (size_t i = 0; i < this->track; ++i) {
 		std::string f = contacts[i].get_firstname();
 		std::string l = contacts[i].get_lastname();
 		std::string n = contacts[i].get_nickname();
@@ -112,16 +114,27 @@ std::string get_valid_number(const std::string& prompt){
 			break ;
 		}
 	}
-	(d == 2 ) ? (d = 0 ): (d = 1);
+	(d == 2) ? (d = 0 ): (d = 1);
 	}
 	return (inp);
 }
 
 int PhoneBook::check_contact(int index) const {
-	if (contacts[index].get_firstname().empty()){
-		std::cout << "You got no contacts in the list" << std::endl;
-		// std::cout << "Enter your command please" << std::endl;
-		return (0);
-	}
+		if (!this->track){
+			std::cout << "You got no contacts in the list" << std::endl;
+			return (0);
+		}
+		else if (contacts[index].get_firstname().empty()){
+			std::cout << "Please enter a correct index for the existing users" << std::endl;
+			return (0);
+		}
 	return (1);
+}
+
+int PhoneBook::check_number(std::string x){
+	if (x.size() != 1)
+		return (-1);
+	int s;
+	s = x[0] - '0';
+	return (s);
 }
