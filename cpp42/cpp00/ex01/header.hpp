@@ -6,10 +6,11 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 11:35:47 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/04 15:45:58 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:04:53 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef HEADER_HPP
 #define HEADER_HPP
 

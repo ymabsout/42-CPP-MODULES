@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:44:34 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/04 15:56:06 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/04 17:35:06 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void PhoneBook::display_contacts() const {
 		std::string f = contacts[i].get_firstname();
 		std::string l = contacts[i].get_lastname();
 		std::string n = contacts[i].get_nickname();
-		if (f.size() >= 10) f = f.substr(0, 9) + '.';
-		if (l.size() >= 10) l = l.substr(0, 9) + '.';
-		if (n.size() >= 10) n = n.substr(0, 9) + '.';
+		if (f.size() > 10) f = f.substr(0, 9) + '.';
+		if (l.size() > 10) l = l.substr(0, 9) + '.';
+		if (n.size() > 10) n = n.substr(0, 9) + '.';
 		std::cout << std::setw(10) << i + 1 << "|"
 		<< std::setw(10) << f << "|" << std::setw(10) << l << "|"
 		<< std::setw(10) << n << std::endl;
