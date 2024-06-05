@@ -6,14 +6,14 @@
 #    By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/03 14:47:22 by ymabsout          #+#    #+#              #
-#    Updated: 2024/06/04 18:07:34 by ymabsout         ###   ########.fr        #
+#    Updated: 2024/06/05 16:37:52 by ymabsout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
-SRCS = phonebook.cpp main.cpp
+SRCS = PhoneBook.cpp Main.cpp
 OBJS = $(SRCS:.cpp=.o)
 HEADER = header.hpp
 NAME = phonebook
