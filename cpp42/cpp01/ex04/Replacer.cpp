@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Header.hpp                                         :+:      :+:    :+:   */
+/*   Replacer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/06 20:12:48 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 20:47:31 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/06 21:34:06 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/06 21:39:50 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <iostream>
-#include <fstream>
-#include <iomanip>
+#include "Replacer.hpp"
 
-class Replacer{
-    private:
-        std::string s2;
-        std::string s1;
-    public:
-    Replacer()
+void Replacer::switcher(std::string &str){
+    if (str == _s1)
+        str = _s2;
 }
