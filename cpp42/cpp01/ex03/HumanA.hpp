@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 22:28:32 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 10:25:34 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/06 12:32:07 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/06 15:25:59 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+#include <iostream>
+#include <string>
+#include "Weapon.hpp"
 
-int main (){
-    atexit(b);
-    Zombie o("foo");
-    o.announce();
-    Zombie *i = newZombie("bar");
-    Zombie *y = newZombie("oop");
-    i->announce(); y->announce();
-    randomChump("tmp");
-    delete(i); delete(y);
-}
+class HumanA{
+    private:
+        std::string _name;
+        Weapon &tool;
+    public:
+    void attack();
+    HumanA(const std::string &name, Weapon&);
+    ~HumanA(void);
+};

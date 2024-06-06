@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 22:28:32 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 10:25:34 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/06 13:13:12 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/06 15:17:41 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-int main (){
-    atexit(b);
-    Zombie o("foo");
-    o.announce();
-    Zombie *i = newZombie("bar");
-    Zombie *y = newZombie("oop");
-    i->announce(); y->announce();
-    randomChump("tmp");
-    delete(i); delete(y);
+HumanB::HumanB(const std::string &name){
+    this->_name = name;
+}
+
+HumanB::~HumanB(void){
+    std::cout << "HumanB has left the game" << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &arm){
+    this->tool = &arm;
+}
+
+void HumanB::attack(){
+    std::cout << _name << "attacks with their " 
+        << tool->getType() << std::endl;
 }

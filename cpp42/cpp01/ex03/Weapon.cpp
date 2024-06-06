@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 22:28:32 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 10:25:34 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/06 12:46:37 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/06 12:50:42 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main (){
-    atexit(b);
-    Zombie o("foo");
-    o.announce();
-    Zombie *i = newZombie("bar");
-    Zombie *y = newZombie("oop");
-    i->announce(); y->announce();
-    randomChump("tmp");
-    delete(i); delete(y);
+Weapon::Weapon(std::string type){
+    this->_type = type;
+}
+
+std::string const &Weapon::getType(){
+    return (this->_type);
+}
+
+void Weapon::setType(std::string type){
+    this->_type = type;
 }

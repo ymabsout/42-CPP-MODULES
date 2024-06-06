@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 22:50:10 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/05 23:13:16 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/06 10:16:09 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void Zombie::announce(void){
 }
 
 Zombie::~Zombie(void){
-    std::cout << this->name << "DIED" << std::endl;
+    std::cout << this->name << ": DIED" << std::endl;
 }
