@@ -1,21 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 18:14:11 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 18:27:21 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/07 18:32:48 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/07 18:32:54 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
-
-int main (){
-    Harl harl;
-    harl.complain("WARNING");
-    harl.complain("INFO");
-    harl.complain("ERROR");
-    harl.complain("DEBUG");
-}
+#include <i

@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:39:31 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 15:57:53 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/07 18:25:28 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,13 @@ void Harl::error(void){
 }
 
 void Harl::complain(std::string level){
-    
+    void (Harl::*ptrfc[4])()= {&Harl::error, &Harl::warning, &Harl::debug, &Harl::info};
+    std::string orders[4]={"ERROR", "WARNING", "DEBUG", "INFO"};
+    for (int i =0; i < 4; i++){
+        if (level == orders[i]){
+            (this->*ptrfc[i])();
+            return ;
+        }
+    }
+    std::cout << "wrong INPUUUUUUUT" << std::endl;
 }
