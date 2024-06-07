@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:41:37 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 15:22:46 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/06 20:06:22 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-void f(){system("leaks violence");}
-
 int main()
 {
-    atexit(f);
 {
     Weapon club = Weapon("crude spiked club");
     HumanA bob("Bob", club);
