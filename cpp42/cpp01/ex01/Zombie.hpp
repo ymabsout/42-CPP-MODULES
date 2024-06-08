@@ -6,11 +6,10 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 10:30:17 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/06 11:04:00 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:28:57 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
 

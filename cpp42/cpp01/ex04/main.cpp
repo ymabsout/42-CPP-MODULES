@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:12:39 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 15:16:47 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/07 21:27:36 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int main (int ac, char **av){
             << std::endl;
         return (0);
     }
-    std::string op;
-    std::string file_out = av[1];
-    std::ifstream in(av[1]);
+    std ::string op;
+    std ::string file_out = av[1];
+    std ::ifstream in(av[1]);
     if (!in){
-        std::cout << "No such file exists" << std::endl;
+        std::cout << "File opening error" << std::endl;
         return (0);
     }
     Replacer inout;
