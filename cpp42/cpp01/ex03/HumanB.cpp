@@ -13,6 +13,7 @@
 #include "HumanB.hpp"
 
 HumanB::HumanB(const std::string &name){
+    this->tool = NULL;
     this->_name = name;
 }
 
@@ -25,6 +26,8 @@ void HumanB::setWeapon(Weapon &arm){
 }
 
 void HumanB::attack(){
-    std::cout << _name << " attacks with their " 
-        << tool->getType() << std::endl;
+    if (tool)
+        std::cout << _name << " attacks with their " 
+            << tool->getType() << std::endl;
+            
 }

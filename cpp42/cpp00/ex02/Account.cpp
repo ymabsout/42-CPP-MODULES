@@ -14,6 +14,7 @@
 #include <ctime>
 #include <iostream>
 #include <iomanip>
+
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
