@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:12:39 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/09 10:21:55 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:29:54 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main (int ac, char **av){
     if (ac != 4){
         std::cout << "Please enter correct number of arguments" 
-            << std::endl;
+                  << std::endl;
         return (0);
     }
     std::string modifier;
@@ -26,7 +26,9 @@ int main (int ac, char **av){
         return (0);
     }
     Replacer inout;
-    inout.set_strings(av[2], av[3]);
+    if (!inout.set_strings(av[2], av[3])){
+        return (0) ;
+    }
     file_out +=  ".replace";
     std::ofstream out(file_out);
     std::string res;

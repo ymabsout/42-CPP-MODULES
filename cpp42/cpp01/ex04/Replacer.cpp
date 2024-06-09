@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 21:34:06 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 15:11:22 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:40:04 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ std::string Replacer::switcher(std::string &str){
     return (res);
 }
 
-void Replacer::set_strings(const std::string &s1, const std::string &s2){
+int Replacer::set_strings(const std::string &s1, const std::string &s2){
+    if (s1.empty() || s2.empty())
+        return (0);
     this->_s1 = s1;
     this->_s2 = s2;
+    return (1);
 }
