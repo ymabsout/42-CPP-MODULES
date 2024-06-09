@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:39:31 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 18:25:28 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/09 10:31:23 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void Harl::complain(std::string level){
             return ;
         }
     }
-    std::cout << "wrong INPUUUUUUUT" << std::endl;
+    std::cout << "No complaints " << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:12:39 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/07 21:27:36 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/09 10:21:55 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int main (int ac, char **av){
             << std::endl;
         return (0);
     }
-    std ::string modifier;
-    std ::string file_out = av[1];
-    std ::ifstream in(av[1]);
+    std::string modifier;
+    std::string file_out = av[1];
+    std::ifstream in(av[1]);
     if (!in){
         std::cout << "File opening error" << std::endl;
         return (0);
@@ -30,9 +30,20 @@ int main (int ac, char **av){
     file_out +=  ".replace";
     std::ofstream out(file_out);
     std::string res;
-    while (std::getline(in >> std::ws, res))
-        modifier.append(res + '\n');
-    std::cout << modifier << std::endl;
-        // out << inout.switcher(op) << std::endl;
+    int count = 0;
+    bool firstLine = true;
+    while (std::getline(in, res)) {
+        if (!firstLine) {
+            modifier.append("\n");
+        }
+        modifier.append(res);
+        firstLine = false;
+        count++;
+    }
+    // std::cout << modifier << std::endl;
+    for (int i = 0; i < count; i++){
+        out << inout.switcher(modifier) << std::endl;
+    }
+    in.close(); out.close();
 }
 //test

@@ -18,7 +18,7 @@ std::string Replacer::switcher(std::string &str){
     while ((finder = str.find(_s1, index)) != std::string::npos){
         res.append(str, index , finder - index);
         res += _s2;
-        index = finder + _s2.length();
+        index = finder + _s1.length();
     }
     res.append(str, index, str.length() - index);
     return (res);
