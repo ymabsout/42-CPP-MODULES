@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:24:08 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/12 20:14:11 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/12 20:29:40 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ Fixed::Fixed(const Fixed &obj){
 }
 
 Fixed::Fixed(const int conv){
-        
+    std::cout <<  "Int constructor called" << std::endl;
+    
 }
