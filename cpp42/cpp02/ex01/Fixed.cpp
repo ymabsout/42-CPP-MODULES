@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:24:08 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/12 20:29:40 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/12 22:38:02 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,26 @@ Fixed::Fixed(const Fixed &obj){
     *this = (obj);
 }
 
-Fixed::Fixed(const int conv){
-    std::cout <<  "Int constructor called" << std::endl;
-    
+Fixed::Fixed(const int number): _fixed_point_numb(number << _storage){
+    std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(const float num): _fixed_point_numb(roundf(num * (1 << _storage))){
+    std::cout << "Float constructor called" << std::endl;
+}
+
+float Fixed::toFloat(void)const{
+    return ((float)_fixed_point_numb / (1 << _storage));
+}
+
+int Fixed::toInt(void) const{
+    int ans;
+
+    ans = _fixed_point_numb / (1 << _storage);
+    return (ans);
+}
+
+std::ostream &operator <<(std::ostream &out, const Fixed&objs){
+    out << objs.toFloat();
+    return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:21:17 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/12 17:42:26 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/12 22:27:07 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed{
 
     public:
         Fixed();
-        Fixed(const int num);
+        Fixed(const int number);
         Fixed(const Fixed& obj);
         Fixed(const float num);
         ~Fixed();
@@ -35,5 +35,6 @@ class Fixed{
         void    setRawBits(int const raw);
 
 };
+    std::ostream &operator <<(std::ostream&out , const Fixed&objs);
 
 #endif
