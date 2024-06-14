@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 11:23:45 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/14 00:39:04 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/14 02:25:43 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/14 03:32:19 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 Fixed::Fixed(): _fixedPoint(0){
     std::cout << "default constructor called" << std::endl;
@@ -24,7 +25,18 @@ Fixed::Fixed(const int num) : _fixedPoint(num * 256){
     std::cout << "int constructor called" << std::endl;
 }
 
+int Fixed::getRawBits(void)const{
+    std::cout << "getRawBits member function called" << std::endl;
+    return(this->_fixedPoint);
+}
+
+void Fixed::setRawBits(int const raw){
+    std::cout << "setRawBits member function called" << std::endl;
+    this->_fixedPoint = raw;
+}
+
 Fixed::Fixed(const float nb){
+    std::cout << "------------" << std::endl;
     std::cout << "float constructor called" << std::endl;
     this->_fixedPoint = (roundf(nb * (1  << _fractionalBits)));
 }
@@ -58,10 +70,6 @@ bool Fixed::operator!=(const Fixed &ob)const{
 }
 
 bool Fixed::operator>(const Fixed &ob)const{
-    std::cout <<  "-------------------" << std::endl;
-    std::cout << this->_fixedPoint << " " <<  ob._fixedPoint << std::endl;
-    std::cout <<  "-------------------" << std::endl;
-    std::cout << this->toFloat() << " " <<  ob.toFloat() << std::endl;
     return (this->_fixedPoint > ob._fixedPoint);
 }
 
