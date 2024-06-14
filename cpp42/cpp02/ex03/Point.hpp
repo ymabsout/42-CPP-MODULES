@@ -27,8 +27,9 @@ class Point {
         ~Point();
         Point &operator=(const Point &objs);
         Point(const Point &ob);
-        int getX(void) const;
-        int getY(void) const;
+        float getX(void) const;
+        float getY(void) const;
         Point(const float a, const float b);
+        static Fixed crossProduct(const Point &a, const Point &b, const Point &p);
 };
 bool bsp( Point const a, Point const b, Point const c, Point const point);
