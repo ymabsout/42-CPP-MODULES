@@ -18,18 +18,21 @@
 #include "Fixed.hpp"
 
 class Point {
-    private:
-        Fixed const x;
-        Fixed const y;
+private:
+    Fixed const x;
+    Fixed const y;
 
-    public:
-        Point();
-        ~Point();
-        Point &operator=(const Point &objs);
-        Point(const Point &ob);
-        float getX(void) const;
-        float getY(void) const;
-        Point(const float a, const float b);
-        static Fixed crossProduct(const Point &a, const Point &b, const Point &p);
+public:
+    Point();
+    ~Point();
+    Point(const Point &ob);
+    Point &operator=(const Point &objs);
+    Point(const float a, const float b);
+
+    float getX(void) const;
+    float getY(void) const;
+
+    static Fixed crossProduct(const Point &a, const Point &b, const Point &p);
 };
-bool bsp( Point const a, Point const b, Point const c, Point const point);
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
