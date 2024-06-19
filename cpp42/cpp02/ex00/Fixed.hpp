@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:21:05 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/12 14:59:35 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:45:18 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed{
     private: 
         int _fixed_point_numb;
-        static const int _storage = 8;
+        static const int _fractionalBits = 8;
     public:
         Fixed();
         Fixed(const Fixed& obj);

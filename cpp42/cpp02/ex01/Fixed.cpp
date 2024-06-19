@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:24:08 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/13 11:57:01 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/18 19:56:14 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,20 @@ Fixed::Fixed(const Fixed &obj){
     *this = (obj);
 }
 
-Fixed::Fixed(const int number): _fixed_point_numb(number << _storage){
+Fixed::Fixed(const int number): _fixed_point_numb(number << _fractionalbits){
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float num): _fixed_point_numb(roundf(num * (1 << _storage))){
+Fixed::Fixed(const float num): _fixed_point_numb(roundf(num * (1 << _fractionalbits))){
     std::cout << "Float constructor called" << std::endl;
 }
 
 float Fixed::toFloat(void)const{
-    return ((float)_fixed_point_numb / (1 << _storage));
+    return ((float)_fixed_point_numb / (1 << _fractionalbits));
 }
 
 int Fixed::toInt(void) const{
-    int ans;
-
-    ans = _fixed_point_numb / (1 << _storage);
-    return (ans);
+    return (_fixed_point_numb / (1 << _fractionalbits));
 }
 
 std::ostream &operator <<(std::ostream &out, const Fixed&objs){

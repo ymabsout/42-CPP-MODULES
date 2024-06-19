@@ -8,7 +8,7 @@ NAME = fpoint
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CLFAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -16,9 +16,9 @@ $(NAME) : $(OBJS)
 clean :
 	rm -rf $(OBJS)
 
-fclean : clean 
+fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
 
-PHONY : clean
+PHONY : clean 

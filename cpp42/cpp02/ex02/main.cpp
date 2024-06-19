@@ -6,13 +6,12 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:23:17 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/14 00:33:42 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/18 20:06:15 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
-
 
 int main( void ) {
     Fixed a;
@@ -24,5 +23,5 @@ int main( void ) {
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
-    return (0);
+    return 0;
 }
