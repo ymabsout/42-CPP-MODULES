@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 02:26:44 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 01:55:55 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/19 01:56:54 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Point& Point::operator=(const Point& ob) {
     std::cout << "Copy assignment operator called" << std::endl;
     return (*this);
 }
+
 Fixed Point::crossProduct(const Point &a, const Point &b, const Point &p) {
     Fixed t1((b.x - a.x) * (p.y - a.y));
     Fixed t2((p.x - a.x) * (b.y - a.y));

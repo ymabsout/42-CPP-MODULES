@@ -1,8 +1,8 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-HEADER = ClapTrap.hpp
+HEADER = FragTrap.hpp
 NAME = a.out
 
 all : $(NAME)
@@ -10,7 +10,7 @@ all : $(NAME)
 $(NAME):$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp $(HEADER) ClapTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 

@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 02:14:24 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 04:02:49 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/19 06:05:06 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/19 06:05:13 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(const std::string &name): _name(name), _hitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
-	std::cout << _name << " Constructor called" << std::endl;
+	std::cout << _name << " ClapTrap Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _EnergyPoints(10), _AttackDamage(0) {
@@ -25,7 +25,7 @@ ClapTrap::~ClapTrap(){
 }
 
 ClapTrap::ClapTrap(const ClapTrap &objs){
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << " ClapTrap Copy constructor called" << std::endl;
 	_name = objs._name;
 	_AttackDamage = objs._AttackDamage;
 	_EnergyPoints = objs._EnergyPoints;

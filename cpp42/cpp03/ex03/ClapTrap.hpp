@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/19 02:09:43 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 03:58:15 by ymabsout         ###   ########.fr       */
+/*   Created: 2024/06/19 06:05:21 by ymabsout          #+#    #+#             */
+/*   Updated: 2024/06/19 06:05:27 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 class ClapTrap {
-    private:
+    protected :
         std::string _name;
         int _hitPoints;
         int _EnergyPoints;
