@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 06:06:04 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 06:06:06 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/19 07:39:52 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : virtual public ClapTrap{
     public:
         ScavTrap();
         ScavTrap(const std::string &name);
