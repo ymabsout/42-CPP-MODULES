@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 02:14:24 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 04:02:49 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/20 17:42:01 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _EnergyPoints(10), _Atta
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << _name << " Is DEAAAD" << std::endl;
+	std::cout << "Claptrap " << _name << " Is DEAAAD" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &objs){
@@ -60,9 +60,10 @@ void ClapTrap::beRepaired(unsigned int amount){
 		_hitPoints += amount;
 		_EnergyPoints-=amount;
 	}
-	else{
-		std::cout << _name << " Does not have enough energy to Heal" << std::endl;
-	}
+	else if (_hitPoints <= 0)
+		std::cout << _name << " Does not have enough Hit Points D;" << std::endl;
+	else if (_EnergyPoints <= 0)
+		std::cout << _name << " Does not have enough Energyy D;" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

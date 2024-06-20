@@ -6,7 +6,7 @@
 /*   By: ymabsout <ymabsout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 06:13:28 by ymabsout          #+#    #+#             */
-/*   Updated: 2024/06/19 18:07:40 by ymabsout         ###   ########.fr       */
+/*   Updated: 2024/06/20 20:52:59 by ymabsout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ DiamondTrap::DiamondTrap() {
     std::cout << "DiamondTrap Default Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name){
+DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name"){
     _name = name;
-    ClapTrap::_name = name + "_clap_name";
     _hitPoints = FragTrap::_hitPoints;
     _EnergyPoints = ScavTrap::_EnergyPoints;
     _AttackDamage = FragTrap::_AttackDamage;
@@ -52,7 +51,7 @@ DiamondTrap::~DiamondTrap(){
 }
 
 void DiamondTrap::whoAmI() {
-	std::cout << "name: " << _name << " .And claptrap name: " 
+	std::cout << "name: " << _name << " . And claptrap name: " 
         << ClapTrap::_name << std::endl;
 }
 

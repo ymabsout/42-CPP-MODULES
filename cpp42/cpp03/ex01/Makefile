@@ -10,7 +10,7 @@ all : $(NAME)
 $(NAME):$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp $(HEADER)
+%.o : %.cpp $(HEADER) ScavTrap.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
