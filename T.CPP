@@ -7,50 +7,85 @@
 #include <set>
 #include <unordered_map>
 #include <queue>
-#define ff(o) for (ll i=0;i < o;i++)
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-typedef  long long ll;
 
-// int dr[]{-1,1,0,0,-1,1};
-// int dc[]{0,0,1,-1,1,-1};
+#include <iostream>
+#include <string>
+#include <climits>
 
-// struct node{
-//     int r , c, dista;
-// };
+using namespace std;
 
-// int valid(int r, int c, vector < vector <int > > &grid, int size){
-//     if (r <= 0 || r >= size || c <= 0 || c >= size || grid[r][c] != '0')
-//         return (0);
-//     return (1);
-// }
+long long evaluate_expression(string expression) {
+    // Evaluates the given arithmetic expression
+    long long result = 0;
+    char op = '+';
+    long long num = 1; // Initialize num to 1 for multiplication
 
-// class Solution {
-// public:
-//     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-//         int n = grid[0].size();
-//         node f;
-//         queue<node> abs;
-//         abs.push({0,0});
-//         int r = -1;
-//         int c = -1;
-//         int min_dis = n*n;
-//         while (!abs.empty()){
-//             f = abs.front();
-//             abs.pop();
-//             if (f.r == n-1 && f.c == n -1)
-//                 return (min_dis + 1);
-//             for (int i = 0 ; i < 6; i++){
-//                 r = f.r + dr[i];
-//                 c = f.c + dc[i];
-//                 if (valid(r, c, grid, n)){
-//                     int curr_dist = f.dista + 1;
-//                     if (curr_dist <= min_dis){
-//                         min_dis = curr_dist;
-//                         abs.push({r,c,curr_dist});
-//                     }
-//                 }
-//             }
-//         }
-//         return ({-1,-1});
-//     }
-// };
+    for (char c : expression) {
+        if (isdigit(c)) {
+            num = num * (c - '0');
+        } else {
+            if (op == '+') {
+                result += num;
+            } else {
+                result *= num;
+            }
+            op = c;
+            num = 1; // Reset num for the next number
+        }
+    }
+
+    if (op == '+') {
+        result += num;
+    } else {
+        result *= num;
+    }
+
+    return result;
+}
+
+long long insert_symbols(int n, string s) {
+    if (n == 2) {
+        // If the length is 2, simply return the original number
+        return stoll(s);
+    }
+
+    long long min_result = LLONG_MAX;
+
+    // Try all possible combinations of inserting symbols
+    for (int i = 1; i < n - 1; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            // Insert addition symbol
+            string expression = s.substr(0, i) + "+" + s.substr(i, j - i) + "+" + s.substr(j);
+            long long result = evaluate_expression(expression);
+            min_result = min(min_result, result);
+
+            // Insert multiplication symbol
+            expression = s.substr(0, i) + "×" + s.substr(i, j - i) + "×" + s.substr(j);
+            result = evaluate_expression(expression);
+            min_result = min(min_result, result);
+        }
+    }
+
+    return min_result;
+}
+
+int main() {
+    int t;
+    cin >> t; // Number of test cases
+
+    for (int i = 0; i < t; ++i) {
+        int n;
+        cin >> n; // Length of the string
+        string s;
+        cin >> s; // String consisting of digits
+        cout << insert_symbols(n, s) << endl;
+    }
+
+    return 0;
+}
