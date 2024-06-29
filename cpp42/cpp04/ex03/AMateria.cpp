@@ -1,7 +1,7 @@
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-AMateria::AMateria(){
+AMateria::AMateria() : type(""){
     std::cout << "AMateria constructor called" << std::endl;
 }
 
@@ -23,7 +23,7 @@ AMateria::~AMateria(){
 }
 
 void AMateria::use(ICharacter &target){
-    std::cout << "Using AMateri on " << target.getName() << std::endl;
+    std::cout << "Using "<< type <<" on " << target.getName() << std::endl;
 }
 
 AMateria &AMateria::operator=(const AMateria& objs){
@@ -31,3 +31,4 @@ AMateria &AMateria::operator=(const AMateria& objs){
         this->type = objs.getType();
     return (*this);
 }
+
