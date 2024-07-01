@@ -6,7 +6,7 @@ AMateria::AMateria() : type(""){
 }
 
 AMateria::AMateria(std::string const &type) : type(type){
-    std::cout << "AMateria " << type << "Contructor called "<< std::endl;
+    std::cout << "AMateria " << type << " Contructor called "<< std::endl;
 }
 
 std::string const & AMateria::getType() const {
