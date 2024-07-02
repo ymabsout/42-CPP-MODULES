@@ -1,6 +1,6 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = a.out
 
@@ -10,7 +10,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -rf $(OBJS)
@@ -18,6 +18,6 @@ clean :
 fclean : clean 
 	rm -rf $(NAME)
 
-re : flcean all
+re : fclean all
 
 PHONY : clean

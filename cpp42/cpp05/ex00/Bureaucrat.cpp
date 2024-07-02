@@ -5,17 +5,13 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(short grade): name("NoName"), grade(grade){
-	if (grade < 0)
+	if (grade <= 0)
 		throw GradeTooHighException();
 	else if (grade > 150)
 		throw GradeTooLowException();
 	else
 		std::cout << name << " construct called" << std::endl;
 }
-
-// const Bureaucrat::GradeTooHighException() char *what const _NOEXCEPT{
-
-// }
 
 Bureaucrat::~Bureaucrat(){
 	std::cout << "Bureaucrat destructor called" << std::endl;
@@ -39,4 +35,16 @@ const std::string Bureaucrat::getName(){
 	return (name);
 }
 
-void 
+void Bureaucrat::incrementGrade(){
+	if (getGrade() - 1 <= 0)
+		throw(GradeTooHighException());
+	else
+		--grade;
+}
+
+void Bureaucrat::decrementGrade(){
+	if (getGrade() + 1 >= 150)
+		throw(GradeTooLowException());
+	else
+		++grade;
+}

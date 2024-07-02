@@ -13,9 +13,9 @@ class Bureaucrat {
         Bureaucrat(short grade);
         Bureaucrat(Bureaucrat &objs);
         Bureaucrat &operator=(Bureaucrat&);
+        ~Bureaucrat();
         const std::string getName();
         short   getGrade();
-        ~Bureaucrat();
         void incrementGrade();
         void decrementGrade();
         class GradeTooHighException : public std::exception{
@@ -27,7 +27,7 @@ class Bureaucrat {
         class GradeTooLowException : public std::exception{
             public:
                 const char *what() const _NOEXCEPT{
-                    return("Grade too low for the bureaucraft");
+                    return("Grade too low for the bureaucrat");
                 }
         };
 };
