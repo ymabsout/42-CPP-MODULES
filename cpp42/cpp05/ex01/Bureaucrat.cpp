@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150){
 	std::cout << "Bureaucraft default constructor called " << std::endl;
@@ -27,11 +28,11 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &objs){
 	return (*this);
 }
 
-short Bureaucrat::getGrade(){
+short Bureaucrat::getGrade()const{
 	return(grade);
 }
 
-const std::string Bureaucrat::getName(){
+std::string Bureaucrat::getName() const{
 	return (name);
 }
 
@@ -49,6 +50,12 @@ void Bureaucrat::decrementGrade(){
 		++grade;
 }
 
+void Bureaucrat::signForm(Form &objs) const{
+	if (objs.checkIfSigned())
+		std::cout << this->getName() << " signed " << objs.getName() << std::endl;
+}
+
 std::ostream &operator <<(std::ostream &op, Bureaucrat& objs){
-	std::cout << objs.getName() << " , bureaucrat grade " << objs.getGrade() << std::endl;
+	op << objs.getName() << " , bureaucrat grade " << objs.getGrade() << std::endl;
+	return (op);
 }
