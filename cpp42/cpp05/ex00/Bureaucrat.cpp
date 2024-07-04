@@ -49,6 +49,6 @@ void Bureaucrat::decrementGrade(){
 		++grade;
 }
 
-std::ostream &operator <<(std::ostream &op, Bureaucrat& objs){
+std::ostream &operator << (std::ostream &op, Bureaucrat& objs){
 	std::cout << objs.getName() << " , bureaucrat grade " << objs.getGrade() << std::endl;
 }

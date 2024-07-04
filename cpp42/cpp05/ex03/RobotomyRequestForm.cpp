@@ -5,7 +5,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 72, 45){
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45){
-    std::cout << target << " Constructor Called" << std::endl;
+    std::cout << target << " Robotomy Constructor Called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
