@@ -24,9 +24,8 @@ Form::Form(Form &objs) : name(objs.getName()), ifsigned(objs.checkIfSigned()), g
 }
 
 Form &Form::operator=(const Form &objs){
-    if (this != &objs){
+    if (this != &objs)
         ifsigned = objs.ifsigned;
-    }
     return (*this);
 }
 

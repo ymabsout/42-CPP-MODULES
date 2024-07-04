@@ -4,7 +4,7 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150){
 	std::cout << "Bureaucraft default constructor called " << std::endl;
 }
 
-Bureaucrat::Bureaucrat(short grade): name("NoName"), grade(grade){
+Bureaucrat::Bureaucrat(std::string name ,short grade): name(name), grade(grade){
 	if (grade <= 0)
 		throw GradeTooHighException();
 	else if (grade > 150)
@@ -50,5 +50,6 @@ void Bureaucrat::decrementGrade(){
 }
 
 std::ostream &operator << (std::ostream &op, Bureaucrat& objs){
-	std::cout << objs.getName() << " , bureaucrat grade " << objs.getGrade() << std::endl;
+	op << objs.getName() << " , bureaucrat grade." << objs.getGrade() << std::endl;
+	return (op);
 }

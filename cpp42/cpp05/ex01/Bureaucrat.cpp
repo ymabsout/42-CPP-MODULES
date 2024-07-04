@@ -5,7 +5,7 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150){
 	std::cout << "Bureaucraft default constructor called " << std::endl;
 }
 
-Bureaucrat::Bureaucrat(short grade): name("NoName"), grade(grade){
+Bureaucrat::Bureaucrat(std::string name , short grade): name(name), grade(grade){
 	if (grade <= 0)
 		throw GradeTooHighException();
 	else if (grade > 150)
@@ -50,7 +50,7 @@ void Bureaucrat::decrementGrade(){
 		++grade;
 }
 
-void Bureaucrat::signAForm(AForm &objs) const{
+void Bureaucrat::signForm(Form &objs) const{
 	if (objs.checkIfSigned())
 		std::cout << this->getName() << " signed " << objs.getName() << std::endl;
 	else

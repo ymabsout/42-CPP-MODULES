@@ -12,7 +12,7 @@ class Bureaucrat {
 
     public:
         Bureaucrat();
-        Bureaucrat(short grade);
+        Bureaucrat(std::string name, short grade);
         Bureaucrat(Bureaucrat &objs);
         Bureaucrat &operator=(Bureaucrat&);
         ~Bureaucrat();
