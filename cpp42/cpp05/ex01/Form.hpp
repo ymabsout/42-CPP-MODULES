@@ -1,9 +1,10 @@
 #include <iostream>
 #ifndef FORM_HPP
 #define FORM_HPP
-
 #include "Bureaucrat.hpp"
+
 class Bureaucrat;
+
 class Form {
     private:
         const std::string name;
@@ -20,16 +21,12 @@ class Form {
 
         class GradeTooHighException : public std::exception{
             public:
-                const char * what() const _NOEXCEPT{
-                    return ("Grade Too High");
-                }
+                const char * what() const _NOEXCEPT;
         };
 
         class GradeTooLowException : public std::exception{
             public:
-                const char * what() const _NOEXCEPT{
-                    return ("Grade Too Low");
-                }
+                const char * what() const _NOEXCEPT;
         };
 
         std::string getName() const;

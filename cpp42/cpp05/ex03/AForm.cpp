@@ -55,6 +55,18 @@ void AForm::beSigned(const Bureaucrat &obj) {
         throw(GradeTooLowException());
 }
 
+const char *AForm::GradeTooHighException::what() const _NOEXCEPT{
+    return ("Form Grade too High");
+}
+
+const char *AForm::GradeTooLowException::what() const _NOEXCEPT{
+    return ("Form Grade too low");
+}
+
+const char *AForm::FormNotSigned::what() const _NOEXCEPT{
+    return ("Form is NOT signed or Grade too low/high to execute");
+}
+
 std::ostream &operator<<(std::ostream &op, AForm& objs){
     op << "AForm's name " << objs.getName() << std::endl;
     op << (objs.checkIfSigned() ?  "AForm is signed" : "AForm is not signed") << std::endl;

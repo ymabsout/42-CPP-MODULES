@@ -6,7 +6,7 @@ NAME = a.out
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(OBJS) ShrubberyCreationForm.hpp AForm.hpp Bureaucrat.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp Intern.hpp
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp

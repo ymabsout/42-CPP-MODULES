@@ -17,6 +17,11 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm & obj) : A
     std::cout << "Presidential copy consturctor called" << std::endl;
 }
 
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm & objs){
+    (void)objs;
+    return (*this);
+}
+
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
     if (checkIfSigned() && executor.getGrade() <= getGradeToExecute())
     {

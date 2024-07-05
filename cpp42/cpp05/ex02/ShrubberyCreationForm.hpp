@@ -12,7 +12,6 @@ class ShrubberyCreationForm : public AForm {
     ShrubberyCreationForm &operator=(ShrubberyCreationForm& objs);
 
     void execute (Bureaucrat const & executor) const;
-
 };
 
 #endif

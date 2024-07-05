@@ -20,24 +20,19 @@ class AForm {
 
         class GradeTooHighException : public std::exception{
             public:
-                const char * what() const _NOEXCEPT{
-                    return ("Grade Too High");
-                }
+                const char * what() const _NOEXCEPT;
         };
 
         class GradeTooLowException : public std::exception{
             public:
-                const char * what() const _NOEXCEPT{
-                    return ("Grade Too Low");
-                }
+                const char * what() const _NOEXCEPT;
         };
 
         class FormNotSigned : public std::exception {
         public: 
-            const char * what() const _NOEXCEPT {
-                return ("Form is NOT signed or Grade too low/high to execute");
-            }
+            const char * what() const _NOEXCEPT;
         };
+
         std::string getName() const;
         bool checkIfSigned() const;
         virtual void execute (Bureaucrat const & executor) const = 0;

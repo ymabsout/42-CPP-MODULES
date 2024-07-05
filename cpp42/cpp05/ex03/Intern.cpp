@@ -18,6 +18,10 @@ Intern &Intern::operator=(const Intern &objs){
     return (*this);
 }
 
+const char * Intern::unexistantForm::what() const _NOEXCEPT{
+    return ("No matching form name");
+}
+
 AForm* Intern::makeForm(std::string formName, std::string formTarget){
     AForm *forms[3] = {new PresidentialPardonForm(formTarget), new RobotomyRequestForm(formTarget), new ShrubberyCreationForm(formTarget)};
     std::string names[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};

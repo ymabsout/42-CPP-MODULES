@@ -14,14 +14,6 @@ class RobotomyRequestForm : public AForm {
         RobotomyRequestForm &operator=(RobotomyRequestForm & objs);
 
         void execute(Bureaucrat const & executor) const;
-
-        class failedRobotomy : public std::exception {
-            public:
-                const char * what() const _NOEXCEPT{
-                    return ("Robotomy has failed");
-                }
-        };
-
 };
 
 #endif

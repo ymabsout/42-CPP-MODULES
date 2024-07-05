@@ -17,7 +17,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm & objs) : AForm(obj
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm & objs){
-    (void) objs;
+    (void)objs;
     return (*this);
 }
 
@@ -29,7 +29,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
             std::cout << getName() << " has been Robotomized successfully" << std::endl;
         }
         else
-            throw(failedRobotomy());
+            std::cout << "Robotomy failed " << std::endl;
         ++i;
     }
     else

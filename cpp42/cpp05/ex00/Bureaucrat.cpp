@@ -43,10 +43,18 @@ void Bureaucrat::incrementGrade(){
 }
 
 void Bureaucrat::decrementGrade(){
-	if (getGrade() + 1 >= 150)
+	if (getGrade() + 1 > 150)
 		throw(GradeTooLowException());
 	else
 		++grade;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT{
+	return("Grade too high for the bureaucrat");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT{
+	return("Grade too low for the bureaucrat");
 }
 
 std::ostream &operator << (std::ostream &op, Bureaucrat& objs){

@@ -15,9 +15,7 @@ class Intern {
         AForm * makeForm(std::string formName, std::string formTarget);
         class unexistantForm: public std::exception {
             public:
-                const char * what() const _NOEXCEPT{
-                    return ("No matching form name");
-                }
+                const char * what() const _NOEXCEPT;
         };
 };
 

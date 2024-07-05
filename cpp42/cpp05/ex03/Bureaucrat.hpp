@@ -24,16 +24,11 @@ class Bureaucrat {
 
         class GradeTooHighException : public std::exception{
             public:
-                const char* what() const _NOEXCEPT{
-                    return("Grade too high for the bureaucrat");
-                }
+                const char* what() const _NOEXCEPT;
         };
-
         class GradeTooLowException : public std::exception{
             public:
-                const char *what() const _NOEXCEPT{
-                    return("Grade too low for the bureaucrat");
-                }
+                const char *what() const _NOEXCEPT;
         };
 
         void signAForm(AForm &objs) const;

@@ -65,6 +65,14 @@ void Bureaucrat::executeForm(AForm const & form){
 	}
 }
 
+const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT{
+	return("Grade too high for the bureaucrat");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT{
+	return("Grade too low for the bureaucrat");
+}
+
 std::ostream &operator <<(std::ostream &op, Bureaucrat& objs){
 	op << objs.getName() << " , bureaucrat grade " << objs.getGrade() << std::endl;
 	return (op);

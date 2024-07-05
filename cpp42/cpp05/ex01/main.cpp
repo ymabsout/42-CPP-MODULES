@@ -3,11 +3,10 @@
 
 int main() {
     try {
-        Bureaucrat b1(100);
+        Bureaucrat b1("bolisi", 100);
         std::cout << "Bureaucrat b1 created successfully." << std::endl;
-
         try {
-            Bureaucrat b2(200); // Throws std::exception (invalid grade)
+            Bureaucrat b2("benay",200); // Throws std::exception (invalid grade)
             std::cout << "This line should not be printed." << std::endl;
         }
         catch (std::exception &e) {
@@ -26,7 +25,7 @@ int main() {
             std::cout << "Exception caught: " << e.what() << std::endl;
         }
 
-        Bureaucrat B2(50); // throws exception 
+        Bureaucrat B2("mo7ami", 50);
         try{
             formula.beSigned(B2);
             std::cout << "Form signed successfully." << std::endl;
@@ -37,7 +36,7 @@ int main() {
         }
 
         try {
-            Bureaucrat B3(150); 
+            Bureaucrat B3("benay",150); 
             formula.beSigned(B3); // Throws std::exception (insufficient grade)
             std::cout << "This line should not be printed." << std::endl;
         }

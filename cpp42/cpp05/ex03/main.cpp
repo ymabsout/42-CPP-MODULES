@@ -42,6 +42,7 @@ int main() {
         Bureaucrat op("rajol",2);
         rrf->beSigned(op);
         rrf->execute(op);
+        delete rrf;
     }
     catch (std::exception &e){
         std::cout << e.what() << std::endl;

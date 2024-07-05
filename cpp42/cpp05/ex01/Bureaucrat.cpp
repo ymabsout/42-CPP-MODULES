@@ -44,7 +44,7 @@ void Bureaucrat::incrementGrade(){
 }
 
 void Bureaucrat::decrementGrade(){
-	if (getGrade() + 1 >= 150)
+	if (getGrade() + 1 > 150)
 		throw(GradeTooLowException());
 	else
 		++grade;
@@ -55,6 +55,14 @@ void Bureaucrat::signForm(Form &objs) const{
 		std::cout << this->getName() << " signed " << objs.getName() << std::endl;
 	else
 		std::cout << getName() << " couldn't sign " << objs.getName() << " Because of the grade " << std::endl;
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const _NOEXCEPT{
+	return("Grade too high for the bureaucrat");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const _NOEXCEPT{
+	return("Grade too low for the bureaucrat");
 }
 
 std::ostream &operator <<(std::ostream &op, Bureaucrat& objs){
