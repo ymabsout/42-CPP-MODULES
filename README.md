@@ -12,36 +12,71 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | 03  | [Module 03](cpp03/)            | Inheritance and Encapsulation | Inheritance, constructors and destructors chaining, class hierarchies, access specifiers, special member functions | C++      | ✅ 100   | Inheritance and encapsulation concepts|
 | 04  | [Module 04](cpp04/)            | Polymorphism, Abstract classes | Abstract classes, Polymorphism, interfaces, pure virtual functions           | C++      | ✅ 100   | Polymorphism and abstract concepts    |
 
-## Exercises Overview
+## Exercises Overview 📝
 
-| Module | Exercise                                                   | Objectives                                                     | Status       |
-|--------|------------------------------------------------------------|----------------------------------------------------------------|--------------|
-| 00     | [Exercise 00](cpp00/ex00/): Megaphone              | Implement a simple program to repeat input in uppercase        | ✅ Done      |
-| 00     | [Exercise 01](cpp00/ex01/): My Awesome PhoneBook   | Create a simple phonebook using classes and object-oriented programming | ✅ Done      |
-| 00     | [Exercise 02](): The Job Of Your Dreams                    | Recreate a lost file for a banking application                 | ✅ Done |
-|        |                                                            |                                                                |              |
-| 01     | [Exercise 00](cpp01/ex00/): BraiiiiiiinnnzzzZ      | Introduction to memory allocation and class implementation     | ✅ Done      |
-| 01     | [Exercise 01](cpp01/ex01/): Moar brainz!           | More practice with memory allocation and pointers              | ✅ Done      |
-| 01     | [Exercise 02](cpp01/ex02/): HI THIS IS BRAIN       | Advanced memory management techniques                          | ✅ Done      |
-| 01     | [Exercise 03](cpp01/ex03/): Unnecessary violence   | Implementing classes with complex behaviors                    | ✅ Done      |
-| 01     | [Exercise 04](cpp01/ex04/): Sed is for losers      | More advanced C++ features and file operations                 | ✅ Done      |
-| 01     | [Exercise 05](cpp01/ex05/): Harl 2.0               | Working with advanced class implementations                    | ✅ Done      |
-| 01     | [Exercise 06](cpp01/ex06/): Harl filter            | Filtering and managing complex data structures                 | ✅ Done      |
-|        |                                                            |                                                                |              |
-| 02     | [Exercise 00](cpp02/ex00/): My First Class in Orthodox Canonical Form | Implementing a class in canonical form             | ✅ Done      |
-| 02     | [Exercise 01](cpp02/ex01/): Towards a more useful fixed-point number class | Enhancing the fixed-point number class          | ✅ Done      |
-| 02     | [Exercise 02](cpp02/ex02/): Now we're talking      | Implementing advanced features in the fixed-point class        | ✅ Done      |
-| 02     | [Exercise 03](): BSP                                       | Implementing Binary Space Partitioning                         | ✅ Done |
-|        |                                                            |                                                                |              |
-| 03     | [Exercise 00](cpp03/ex00/): Aaaaand... OPEN!       | Implementing a basic class with specific attributes and functions | ✅ Done  |
-| 03     | [Exercise 01](cpp03/ex01/): Serena, my love!       | Creating a derived class with specific constructors and functions | ✅ Done  |
-| 03     | [Exercise 02](cpp03/ex02/): Repetitive work        | Implementing another derived class with specific attributes and functions | ✅ Done  |
-| 03     | [Exercise 03](): Now it’s weird!                           | Creating a complex class that inherits from multiple classes   | ✅ Done |
-|        |                                                            |                                                                |              |
-| 04     | [Exercise 00](cpp04/ex00/): Polymorphism           | Implementing polymorphism in classes                           | ✅ Done      |
-| 04     | [Exercise 01](cpp04/ex01/): I don’t want to set the world on fire | Implementing deep copies and managing dynamic memory  | ✅ Done  |
-| 04     | [Exercise 02](cpp04/ex02/): Abstract class         | Implementing abstract classes to prevent instantiation of base classes | ✅ Done  |
-| 04     | [Exercise 03](): Interface & recap                         | Implementing interfaces and ensuring understanding of module concepts | ✅ Done |
+### Module 00: Introduction to C++
+
+| Exercise                                         | Objectives                                                                 |
+|--------------------------------------------------|----------------------------------------------------------------------------|
+| **[Exercise 00: Megaphone](cpp00/ex00/)**        | Implement a simple program to repeat input in uppercase                    |
+| **[Exercise 01: My Awesome PhoneBook](cpp00/ex01/)** | Create a simple phonebook using classes and object-oriented programming      |
+| **[Exercise 02: The Job Of Your Dreams](cpp00/ex02/)** | Recreate a lost file for a banking application                              |
+
+### Module 01: Memory Allocation and Pointers
+
+| Exercise                                         | Objectives                                                                 |
+|--------------------------------------------------|----------------------------------------------------------------------------|
+| **[Exercise 00: BraiiiiiiinnnzzzZ](cpp01/ex00/)**| Introduction to memory allocation and class implementation                 |
+| **[Exercise 01: Moar brainz!](cpp01/ex01/)**     | More practice with memory allocation and pointers                          |
+| **[Exercise 02: HI THIS IS BRAIN](cpp01/ex02/)** | Advanced memory management techniques                                      |
+| **[Exercise 03: Unnecessary violence](cpp01/ex03/)**| Implementing classes with complex behaviors                              |
+| **[Exercise 04: Sed is for losers](cpp01/ex04/)**| More advanced C++ features and file operations                             |
+| **[Exercise 05: Harl 2.0](cpp01/ex05/)**         | Working with advanced class implementations                                |
+| **[Exercise 06: Harl filter](cpp01/ex06/)**      | Filtering and managing complex data structures                             |
+
+### Module 02: Ad-hoc Polymorphism and Operator Overloading
+
+| Exercise                                                 | Objectives                                                                |
+|----------------------------------------------------------|--------------------------------------------------------------------------|
+| **[Exercise 00: My First Class in Orthodox Canonical Form](cpp02/ex00/)** | Implementing a class in canonical form                                    |
+| **[Exercise 01: Towards a more useful fixed-point number class](cpp02/ex01/)** | Enhancing the fixed-point number class                                    |
+| **[Exercise 02: Now we're talking](cpp02/ex02/)**        | Implementing advanced features in the fixed-point class                   |
+| **[Exercise 03: BSP](cpp02/ex03/)**                      | Implementing Binary Space Partitioning                                    |
+
+### Module 03: Inheritance and Encapsulation
+
+| Exercise                                         | Objectives                                                                |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| **[Exercise 00: Aaaaand... OPEN!](cpp03/ex00/)** | Implementing a basic class with specific attributes and functions         |
+| **[Exercise 01: Serena, my love!](cpp03/ex01/)** | Creating a derived class with specific constructors and functions         |
+| **[Exercise 02: Repetitive work](cpp03/ex02/)**  | Implementing another derived class with specific attributes and functions |
+| **[Exercise 03: Now it’s weird!](cpp03/ex03/)**  | Creating a complex class that inherits from multiple classes              |
+
+### Module 04: Polymorphism and Abstract Classes
+
+| Exercise                                         | Objectives                                                                |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| **[Exercise 00: Polymorphism](cpp04/ex00/)**     | Implementing polymorphism in classes                                      |
+| **[Exercise 01: I don’t want to set the world on fire](cpp04/ex01/)** | Implementing deep copies and managing dynamic memory                    |
+| **[Exercise 02: Abstract class](cpp04/ex02/)**   | Implementing abstract classes to prevent instantiation of base classes    |
+| **[Exercise 03: Interface & recap](cpp04/ex03/)**| Implementing interfaces and ensuring understanding of module concepts     |
+
+### Module 05: Repetition and Exceptions
+
+| Exercise                                         | Objectives                                                                |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| **[Exercise 00: Mommy, when I grow up, I want to be a bureaucrat!](cpp05/ex00/)** | Implementing a Bureaucrat class with custom exception handling for invalid grades |
+| **[Exercise 01: Form up, maggots!](cpp05/ex01/)** | Creating a Form class with specific attributes and implementing the signing functionality |
+| **[Exercise 02: No, you need form 28B, not 28C...](cpp05/ex02/)** | Implementing various concrete form classes that inherit from an abstract base class and perform specific actions |
+| **[Exercise 03: At least this beats coffee-making](cpp05/ex03/)** | Creating an Intern class that generates forms based on input parameters   |
+
+### Module 06: C++ Casts
+
+| Exercise                                         | Objectives                                                                |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| **[Exercise 00: Conversion of scalar types](cpp06/ex00/)** | Implementing a `ScalarConverter` class to convert string representations to various scalar types |
+| **[Exercise 01: Serialization](cpp06/ex01/)**    | Creating a `Serializer` class to convert a pointer to an unsigned integer and vice versa |
+| **[Exercise 02: Identify real type](cpp06/ex02/)**| Implementing a `Base` class with derived classes `A`, `B`, and `C` to identify the actual type of an object |
 
 ## Regulations
 
