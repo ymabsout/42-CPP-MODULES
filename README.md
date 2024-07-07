@@ -1,50 +1,52 @@
-# 📚 C++ Modules Overview
+# 42 Cpp Modules
 
-Welcome to the C++ modules! This README provides an overview of the key concepts covered across all the modules you will encounter. These modules will take you from the basics of C++ to more advanced topics, ensuring a solid foundation in this powerful programming language.
+This repository contains the source code for the 42 Cpp modules. Each module is a different project that covers a specific topic in C++ programming. The modules are part of the 42 Cpp curriculum and are meant to be completed in order.
 
-## 🚀 Concepts Covered
+## Modules Overview
 
-### Module 00: Introduction to C++ Basics
-- **Namespaces**: Organize code and prevent name collisions.
-- **Classes and Objects**: Encapsulation of data and functions.
-- **Member Functions**: Functions defined inside a class.
-- **Initialization Lists**: Initialize member variables before the constructor body executes.
-- **Static Members**: Shared between all instances of a class.
-- **Const Keyword**: Define constants that cannot be changed after initialization.
+| #   | Module                                 | Introduction          | Topics Covered                                                                 | Language | Status | Comments                              |
+|-----|----------------------------------------|-----------------------|-------------------------------------------------------------------------------|----------|--------|---------------------------------------|
+| 00  | [Module 00](cpp00/)            | Introduction to C++   | Namespaces, classes, member functions, stdio streams, initialization lists, static, const | C++      | ✅ 100  | Basic C++ concepts                    |
+| 01  | [Module 01](cpp01/)            | Memory allocation, pointers | Memory allocation, pointers to members, references, switch statement         | C++      | ✅ 100  | Intermediate concepts                 |
+| 02  | [Module 02](cpp02/)            | Ad-hoc polymorphism, operator overloading | Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form     | C++      | ✅ 100   | Advanced concepts                     |
+| 03  | [Module 03](cpp03/)            | Inheritance and Encapsulation | Inheritance, constructors and destructors chaining, class hierarchies, access specifiers, special member functions | C++      | ✅ 100   | Inheritance and encapsulation concepts|
+| 04  | [Module 04](cpp04/)            | Polymorphism, Abstract classes | Abstract classes, Polymorphism, interfaces, pure virtual functions           | C++      | ✅ 100   | Polymorphism and abstract concepts    |
 
-### Module 01: Memory Allocation and File Handling
-- **Pointers and References**: Variables that store memory addresses and aliases for existing variables.
-- **Dynamic Memory Allocation**: Use of `new` and `delete` operators for runtime memory management.
-- **File I/O**: Reading from and writing to files using streams.
-- **The Stack vs. The Heap**: Difference between static and dynamic memory allocation.
+## Exercises Overview
 
-### Module 02: Ad-hoc Polymorphism, Operators Overloading, and Canonical Form
-- **Polymorphism**: Function and operator overloading for processing objects differently based on their type.
-- **Operator Overloading**: Define behavior of operators for user-defined types.
-- **Canonical Form**: Standard way of implementing classes, including constructors, destructors, and assignment operators.
+| Module | Exercise                                                   | Objectives                                                     | Status       |
+|--------|------------------------------------------------------------|----------------------------------------------------------------|--------------|
+| 00     | [Exercise 00](cpp00/ex00/): Megaphone              | Implement a simple program to repeat input in uppercase        | ✅ Done      |
+| 00     | [Exercise 01](cpp00/ex01/): My Awesome PhoneBook   | Create a simple phonebook using classes and object-oriented programming | ✅ Done      |
+| 00     | [Exercise 02](): The Job Of Your Dreams                    | Recreate a lost file for a banking application                 | ✅ Done |
+|        |                                                            |                                                                |              |
+| 01     | [Exercise 00](cpp01/ex00/): BraiiiiiiinnnzzzZ      | Introduction to memory allocation and class implementation     | ✅ Done      |
+| 01     | [Exercise 01](cpp01/ex01/): Moar brainz!           | More practice with memory allocation and pointers              | ✅ Done      |
+| 01     | [Exercise 02](cpp01/ex02/): HI THIS IS BRAIN       | Advanced memory management techniques                          | ✅ Done      |
+| 01     | [Exercise 03](cpp01/ex03/): Unnecessary violence   | Implementing classes with complex behaviors                    | ✅ Done      |
+| 01     | [Exercise 04](cpp01/ex04/): Sed is for losers      | More advanced C++ features and file operations                 | ✅ Done      |
+| 01     | [Exercise 05](cpp01/ex05/): Harl 2.0               | Working with advanced class implementations                    | ✅ Done      |
+| 01     | [Exercise 06](cpp01/ex06/): Harl filter            | Filtering and managing complex data structures                 | ✅ Done      |
+|        |                                                            |                                                                |              |
+| 02     | [Exercise 00](cpp02/ex00/): My First Class in Orthodox Canonical Form | Implementing a class in canonical form             | ✅ Done      |
+| 02     | [Exercise 01](cpp02/ex01/): Towards a more useful fixed-point number class | Enhancing the fixed-point number class          | ✅ Done      |
+| 02     | [Exercise 02](cpp02/ex02/): Now we're talking      | Implementing advanced features in the fixed-point class        | ✅ Done      |
+| 02     | [Exercise 03](): BSP                                       | Implementing Binary Space Partitioning                         | ✅ Done |
+|        |                                                            |                                                                |              |
+| 03     | [Exercise 00](cpp03/ex00/): Aaaaand... OPEN!       | Implementing a basic class with specific attributes and functions | ✅ Done  |
+| 03     | [Exercise 01](cpp03/ex01/): Serena, my love!       | Creating a derived class with specific constructors and functions | ✅ Done  |
+| 03     | [Exercise 02](cpp03/ex02/): Repetitive work        | Implementing another derived class with specific attributes and functions | ✅ Done  |
+| 03     | [Exercise 03](): Now it’s weird!                           | Creating a complex class that inherits from multiple classes   | ✅ Done |
+|        |                                                            |                                                                |              |
+| 04     | [Exercise 00](cpp04/ex00/): Polymorphism           | Implementing polymorphism in classes                           | ✅ Done      |
+| 04     | [Exercise 01](cpp04/ex01/): I don’t want to set the world on fire | Implementing deep copies and managing dynamic memory  | ✅ Done  |
+| 04     | [Exercise 02](cpp04/ex02/): Abstract class         | Implementing abstract classes to prevent instantiation of base classes | ✅ Done  |
+| 04     | [Exercise 03](): Interface & recap                         | Implementing interfaces and ensuring understanding of module concepts | ✅ Done |
 
-### Module 03: Inheritance
-- **Inheritance**: Create new classes based on existing ones.
-- **Access Specifiers**: Control the accessibility of base class members to derived classes (`public`, `protected`, `private`).
-- **Constructors and Destructors in Inheritance**: Ensure proper initialization and cleanup of objects in a class hierarchy.
+## Regulations
 
-### Module 04: Polymorphism, Abstract Classes, Interfaces
-- **Virtual Functions**: Achieve polymorphism by allowing derived classes to override base class methods.
-- **Abstract Classes**: Classes that cannot be instantiated and are meant to be inherited. They contain at least one pure virtual function.
-- **Interfaces**: Abstract classes with only pure virtual functions that define a contract for derived classes.
-
-### Module 05: Repetition and Exceptions
-- **Exception Handling**: Use `try`, `catch`, and `throw` for runtime error handling.
-- **Standard Template Library (STL)**: Use of common classes and functions like vectors, lists, and algorithms.
-- **Custom Exceptions**: Define specific error handling mechanisms.
-
-### Module 06: C++ Casts
-- **Static Cast**: Standard type conversions.
-- **Dynamic Cast**: Safely downcast pointers and references in a hierarchy.
-- **Const Cast**: Add or remove the `const` qualifier.
-- **Reinterpret Cast**: Low-level casting between different pointer types.
-
-## 📂 Exercises
-Each module includes a series of exercises designed to reinforce the concepts covered. We should ensure to complete these exercises and submit them as specified to gain hands-on experience with C++ programming.
-
-Happy coding! 🚀
+- [Compiling](./REGULATIONS.md#compiling)
+- [Formatting and naming conventions](./REGULATIONS.md#formatting-and-naming-conventions)
+- [Allowed/Forbidden](./REGULATIONS.md#allowed/forbidden)
+- [Design](./REGULATIONS.md#Design_Requirements)
+- [Read me](./REGULATIONS.md#Read_Me)
