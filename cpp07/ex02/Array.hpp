@@ -11,10 +11,10 @@ template <class T> class Array {
         Array(): _array(nullptr), _size(0) {
                 std::cout << "Template Array default constructor" << std::endl;
         }
-        Array(unsigned int n): _array(new T(n)), _size(n) {
+        Array(unsigned int n): _array(new T[n]), _size(n) {
             std::cout << "Template Array constructor" << std::endl;
         }
-        Array(Array const &srcs): _array(new T(srcs.size())), _size(srcs.size()) {
+        Array(Array const &srcs): _array(new T[srcs.size()]), _size(srcs.size()) {
             std::cout << "Template Array copy constructor" << std::endl;
             for (unsigned  int i = 0; i < srcs.size(); i++)
                     this->_array[i] = srcs._array[i];
