@@ -2,15 +2,20 @@
 
 This repository contains the source code for the 42 Cpp modules. Each module is a different project that covers a specific topic in C++ programming. The modules are part of the 42 Cpp curriculum and are meant to be completed in order.
 
-## Modules Overview
+# C++ Modules Overview
 
 | #   | Module                                 | Introduction          | Topics Covered                                                                 | Language | Status | Comments                              |
 |-----|----------------------------------------|-----------------------|-------------------------------------------------------------------------------|----------|--------|---------------------------------------|
-| 00  | [Module 00](cpp00/)            | Introduction to C++   | Namespaces, classes, member functions, stdio streams, initialization lists, static, const | C++      | ✅ 100  | Basic C++ concepts                    |
-| 01  | [Module 01](cpp01/)            | Memory allocation, pointers | Memory allocation, pointers to members, references, switch statement         | C++      | ✅ 100  | Intermediate concepts                 |
-| 02  | [Module 02](cpp02/)            | Ad-hoc polymorphism, operator overloading | Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form     | C++      | ✅ 100   | Advanced concepts                     |
-| 03  | [Module 03](cpp03/)            | Inheritance and Encapsulation | Inheritance, constructors and destructors chaining, class hierarchies, access specifiers, special member functions | C++      | ✅ 100   | Inheritance and encapsulation concepts|
-| 04  | [Module 04](cpp04/)            | Polymorphism, Abstract classes | Abstract classes, Polymorphism, interfaces, pure virtual functions           | C++      | ✅ 100   | Polymorphism and abstract concepts    |
+| 00  | [Module 00](cpp00/)                    | Introduction to C++   | Namespaces, classes, member functions, stdio streams, initialization lists, static, const | C++      | ✅ 100  | Basic C++ concepts                    |
+| 01  | [Module 01](cpp01/)                    | Memory allocation, pointers | Memory allocation, pointers to members, references, switch statement         | C++      | ✅ 100  | Intermediate concepts                 |
+| 02  | [Module 02](cpp02/)                    | Ad-hoc polymorphism, operator overloading | Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form     | C++      | ✅ 100   | Advanced concepts                     |
+| 03  | [Module 03](cpp03/)                    | Inheritance and Encapsulation | Inheritance, constructors and destructors chaining, class hierarchies, access specifiers, special member functions | C++      | ✅ 100   | Inheritance and encapsulation concepts|
+| 04  | [Module 04](cpp04/)                    | Polymorphism, Abstract classes | Abstract classes, Polymorphism, interfaces, pure virtual functions            | C++      | ✅ 100   | Polymorphism and abstract classes     |
+| 05  | [Module 05](cpp05/)                    | Repetition and Exceptions | Exception handling, repetition structures, custom exceptions                  | C++      | ✅ 100   | Exception handling and repetitions    |
+| 06  | [Module 06](cpp06/)                    | C++ Casts              | Dynamic, static, reinterpret, and const casts                                 | C++      | ✅ 100   | Casting types in C++                  |
+| 07  | [Module 07](cpp07/)                    | C++ Templates          | Function templates, class templates, template specialization                  | C++      | ✅ 100   | Templates and generic programming     |
+
+---
 
 ## Exercises Overview 📝
 
