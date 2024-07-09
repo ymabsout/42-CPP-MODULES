@@ -7,8 +7,8 @@
 #define SPAN_HPP
 class Span {
     private: 
-        std::vector < int > _numbers;
         int _maxSize;
+        std::vector < int > _numbers;
     public:
         Span();
         ~Span();

@@ -8,7 +8,7 @@ Span::~Span(){
     std::cout << "Default destructor called" << std::endl;
 }
 
-Span::Span(unsigned int N) : _maxSize(5){
+Span::Span(unsigned int N) : _maxSize(N){
     std::cout << "constructor with : "<<  N << " called" << std::endl;
 }
 
@@ -39,7 +39,7 @@ unsigned int Span::shortestSpan(){
     std::sort(_numbers.begin(), _numbers.end());
     int small = INT_MAX;
     for (int i = 1 ; i < _maxSize; i++){
-        small = std::min(_numbers[i], _numbers[i - 1]);
+        small = std::min(_numbers[i], _numbers[i - 1] - _numbers[i]);
     }
     return (small);
 }
