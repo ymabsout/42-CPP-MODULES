@@ -13,4 +13,7 @@ int main () {
     identify(typeC);
     identify(typeB);
     identify(typeA);
+    delete typeA;
+    delete typeB;
+    delete typeC;
 }

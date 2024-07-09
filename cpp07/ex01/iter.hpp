@@ -5,6 +5,8 @@
 
 template <typename t1, typename t2, typename t3>
 void iter(t1 *array, t2 length, void (*ptr)(t3 x)){
+    if (!array || !x)
+        return ;
     for (int i = 0; i < length; i++)
         ptr(array[i]);
 }
