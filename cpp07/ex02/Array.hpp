@@ -21,24 +21,26 @@ template <class T> class Array {
         }
         ~Array(){
             std::cout << "Template Array destructor" << std::endl;
-            delete _array;
+            delete []_array;
         }
         Array &operator=(Array const &objs){
             std::cout << "Template Array assignation operator" << std::endl;
             if (this != &objs){
                 _size = objs.size();
-                delete _array;
+                delete []_array;
                 _array = new T[_size];
                 for (unsigned int i = 0; i < _size; i++)
                     _array[i] = objs._array[i];
             }
             return (*this);
         }
+
         T &operator[](unsigned int i){
             if (i >= _size || i < 0)
                 throw OutOfLimitsException();
             return _array[i];
         }
+
         unsigned int size() const{
             return (_size);
         }
@@ -49,4 +51,5 @@ template <class T> class Array {
                     return ("Out of limits");
                 };
         };
+
 };
