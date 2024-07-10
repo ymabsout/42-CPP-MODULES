@@ -1,34 +1,35 @@
 #include "Span.hpp"
 
 Span::Span() : _maxSize(0) {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Span default constructor called" << std::endl;
 }
 
 Span::~Span(){
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "Span default destructor called" << std::endl;
 }
 
 Span::Span(unsigned int N) : _maxSize(N){
-    std::cout << "constructor with : "<<  N << " called" << std::endl;
+    std::cout << "Span constructor called for size "<< N <<  std::endl;
 }
 
-void Span::addNumber(unsigned int N){
-    if (static_cast<int>(_numbers.size()) < _maxSize){
-        _numbers.push_back(N);
-        for (int i =0 ; i < _maxSize; i++){
-            std::cout << _numbers[i] << " ";
-        }
-        return ;
-    }
-    throw(std::out_of_range("index out of range !!"));
+Span::Span(const Span & objs) : _maxSize(objs._maxSize), _numbers(objs._numbers){
+    std::cout << "Span Copy Constructor called" << std::endl;
 }
 
-Span &Span::operator=(const Span &objs){
+Span &Span::operator=(Span &objs){
     if (this != &objs){
         this->_maxSize = objs._maxSize;
         this->_numbers = objs._numbers;
     }
     return (*this);
+}
+
+void Span::addNumber(unsigned int N){
+    if (static_cast<int>(_numbers.size()) < _maxSize){
+        _numbers.push_back(N);
+        return ;
+    }
+    throw(std::out_of_range("index out of range !!"));
 }
 
 unsigned int Span::shortestSpan(){
@@ -38,8 +39,8 @@ unsigned int Span::shortestSpan(){
     }
     std::sort(_numbers.begin(), _numbers.end());
     int small = INT_MAX;
-    for (int i = 1 ; i < _maxSize; i++){
-        small = std::min(_numbers[i], _numbers[i - 1] - _numbers[i]);
+    for (int i = 1 ; i < static_cast<int>(_numbers.size()); i++){
+        small = std::min(small ,_numbers[i] - _numbers[i - 1]);
     }
     return (small);
 }
@@ -49,9 +50,5 @@ unsigned int Span::longestSpan(){
         throw(addNumberException());
         return (0);
     }
-    unsigned int b = *(std::max(_numbers.begin(), _numbers.end()));
-    unsigned int s = *(std::min(_numbers.begin(), _numbers.end()));
-    std::cout << _numbers[b] << " " <<  _numbers[s] << std::endl;
-    return (b - s);
+    return(*std::max_element(_numbers.begin(), _numbers.end()) - *std::min_element(_numbers.begin(), _numbers.end()));
 }
-

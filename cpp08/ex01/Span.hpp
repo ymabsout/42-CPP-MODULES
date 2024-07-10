@@ -13,7 +13,8 @@ class Span {
         Span();
         ~Span();
         Span(unsigned int N);
-        Span &operator=(const Span &);
+        Span &operator=(Span &);
+        Span(const Span &);
         void addNumber(unsigned int );
         unsigned int longestSpan();
         unsigned int shortestSpan();
