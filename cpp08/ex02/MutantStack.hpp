@@ -28,7 +28,7 @@ class MutantStack : public std::stack <T>  {
         std::cout << "Mutant destructor called " << std::endl;
     }
 
-    
+    typedef typename std::stack<T>::container_type::iterator 
 };
 
 
