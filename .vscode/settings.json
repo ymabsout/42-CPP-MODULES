@@ -3,6 +3,12 @@
         "__bit_reference": "cpp",
         "algorithm": "cpp",
         "new": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "iostream": "cpp",
+        "stdexcept": "cpp",
+        "exception": "cpp",
+        "list": "cpp",
+        "stack": "cpp",
+        "__config": "cpp"
     }
 }
