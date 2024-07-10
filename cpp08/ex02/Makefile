@@ -1,15 +1,15 @@
-CC = c++
+CC = c++ 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp 
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = Mutate
+NAME = mutant
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp 
+%.o : %.cpp MutantStack.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
@@ -18,6 +18,6 @@ clean :
 fclean : clean 
 	rm -rf $(NAME)
 
-re : fclean all
+re : fclean all 
 
-PHONY  : clean 
+PHONY : clean
