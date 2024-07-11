@@ -21,8 +21,6 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 ## Exercises Overview 📝
 
 ### Module 00: Introduction to C++
-<details>
-<summary><strong>Introduction to C++</strong></summary>
 
 | Exercise                                         | Objectives                                                                 |
 |--------------------------------------------------|----------------------------------------------------------------------------|
@@ -30,11 +28,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 01: My Awesome PhoneBook](cpp00/ex01/)** | Create a simple phonebook using classes and object-oriented programming      |
 | **[Exercise 02: The Job Of Your Dreams](cpp00/ex02/)** | Recreate a lost file for a banking application                              |
 
-</details>
-
 ### Module 01: Memory Allocation and Pointers
-<details>
-<summary><strong>Memory Allocation and Pointers</strong></summary>
 
 | Exercise                                         | Objectives                                                                 |
 |--------------------------------------------------|----------------------------------------------------------------------------|
@@ -46,11 +40,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 05: Harl 2.0](cpp01/ex05/)**         | Working with advanced class implementations                                |
 | **[Exercise 06: Harl filter](cpp01/ex06/)**      | Filtering and managing complex data structures                             |
 
-</details>
-
 ### Module 02: Ad-hoc Polymorphism and Operator Overloading
-<details>
-<summary><strong>Ad-hoc Polymorphism and Operator Overloading</strong></summary>
 
 | Exercise                                                 | Objectives                                                                |
 |----------------------------------------------------------|--------------------------------------------------------------------------|
@@ -59,11 +49,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 02: Now we're talking](cpp02/ex02/)**        | Implementing advanced features in the fixed-point class                   |
 | **[Exercise 03: BSP](cpp02/ex03/)**                      | Implementing Binary Space Partitioning                                    |
 
-</details>
-
 ### Module 03: Inheritance and Encapsulation
-<details>
-<summary><strong>Inheritance and Encapsulation</strong></summary>
 
 | Exercise                                         | Objectives                                                                |
 |--------------------------------------------------|---------------------------------------------------------------------------|
@@ -72,11 +58,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 02: Repetitive work](cpp03/ex02/)**  | Implementing another derived class with specific attributes and functions |
 | **[Exercise 03: Now it’s weird!](cpp03/ex03/)**  | Creating a complex class that inherits from multiple classes              |
 
-</details>
-
 ### Module 04: Polymorphism and Abstract Classes
-<details>
-<summary><strong>Polymorphism and Abstract Classes</strong></summary>
 
 | Exercise                                         | Objectives                                                                |
 |--------------------------------------------------|---------------------------------------------------------------------------|
@@ -85,11 +67,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 02: Abstract class](cpp04/ex02/)**   | Implementing abstract classes to prevent instantiation of base classes    |
 | **[Exercise 03: Interface & recap](cpp04/ex03/)**| Implementing interfaces and ensuring understanding of module concepts     |
 
-</details>
-
 ### Module 05: Repetition and Exceptions
-<details>
-<summary><strong>Repetition and Exceptions</strong></summary>
 
 | Exercise                                         | Objectives                                                                |
 |--------------------------------------------------|---------------------------------------------------------------------------|
@@ -98,23 +76,15 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 02: No, you need form 28B, not 28C...](cpp05/ex02/)** | Implementing various concrete form classes that inherit from an abstract base class and perform specific actions |
 | **[Exercise 03: At least this beats coffee-making](cpp05/ex03/)** | Creating an Intern class that generates forms based on input parameters   |
 
-</details>
-
 ### Module 06: C++ Casts
-<details>
-<summary><strong>C++ Casts</strong></summary>
 
 | Exercise                                         | Objectives                                                                |
 |--------------------------------------------------|---------------------------------------------------------------------------|
-| **[Exercise 00: Conversion of scalar types](cpp06/ex00/)** | Implementing a ScalarConverter class to convert string representations to various scalar types |
-| **[Exercise 01: Serialization](cpp06/ex01/)**    | Creating a Serializer class to convert a pointer to an unsigned integer and vice versa |
-| **[Exercise 02: Identify real type](cpp06/ex02/)**| Implementing a Base class with derived classes A, B, and C to identify the actual type of an object |
-
-</details>
+| **[Exercise 00: Conversion of scalar types](cpp06/ex00/)** | Implementing a `ScalarConverter` class to convert string representations to various scalar types |
+| **[Exercise 01: Serialization](cpp06/ex01/)**    | Creating a `Serializer` class to convert a pointer to an unsigned integer and vice versa |
+| **[Exercise 02: Identify real type](cpp06/ex02/)**| Implementing a `Base` class with derived classes `A`, `B`, and `C` to identify the actual type of an object |
 
 ### Module 07: C++ Templates
-<details>
-<summary><strong>C++ Templates</strong></summary>
 
 | Exercise                                         | Objectives                                                                 |
 |--------------------------------------------------|----------------------------------------------------------------------------|
@@ -122,20 +92,13 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 01: Iter](cpp07/ex01/)**             | Implementing a function template iter that applies a function to each element of an array |
 | **[Exercise 02: Array](cpp07/ex02/)**            | Developing a class template Array with specific behavior and functions     |
 
-</details>
-
 ### Module 08: Templated Containers, Iterators, Algorithms
-<details>
-<summary><strong>Templated Containers, Iterators, Algorithms</strong></summary>
 
 | Exercise                                         | Objectives                                                                 |
 |--------------------------------------------------|----------------------------------------------------------------------------|
 | **[Exercise 00: Easy find](cpp08/ex00/)**        | Implementing a function template easyfind to find an integer in a container |
 | **[Exercise 01: Span](cpp08/ex01/)**             | Developing a Span class to manage a collection of integers and find the shortest and longest spans |
 | **[Exercise 02: Mutated abomination](cpp08/ex02/)** | Creating a MutantStack class that makes a stack iterable                   |
-
-</details>
-
 ## Regulations
 
 - [Compiling](./REGULATIONS.md#compiling)
