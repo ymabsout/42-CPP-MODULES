@@ -4,13 +4,55 @@ Welcome to the exciting world of C++ Module 08! 🚀 In this module, we dive dee
 
 ## Exercises Overview 📜
 
-| Exercise | Description | Key Functions |
-|----------|--------------|----------------|
-| [Exercise 01: Span 🏃‍♂️](#exercise-01-span-🏃‍♂️) | Develop a `Span` class to store a maximum of N integers. Implement functions to find the shortest and longest spans between the numbers. | `addNumber()`, `shortestSpan()`, `longestSpan()` |
-| [Exercise 02: EasyFind 🔍](#exercise-02-easyfind-🔍) | Implement a template function `easyfind` that takes a container and a value, and returns an iterator to the first occurrence of the value in the container. | `easyfind()` |
-| [Exercise 03: MutantStack 🐍](#exercise-03-mutantstack-🐍) | Create a class `MutantStack` that inherits from `std::stack` and allows iteration through its elements. | `begin()`, `end()` |
+| Exercise                                    | Description                                                                                                     | Key Functions                                      |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+| [Exercise 00: EasyFind 🔍](#exercise-00-easyfind-🔍)   | Implement a template function `easyfind` that takes a container and a value, and returns an iterator to the first occurrence of the value in the container. | `easyfind()`                                       |
+| [Exercise 01: Span 🏃‍♂️](#exercise-01-span-🏃‍♂️)       | Develop a `Span` class to store a maximum of N integers. Implement functions to find the shortest and longest spans between the numbers. | `addNumber()`, `shortestSpan()`, `longestSpan()`   |
+| [Exercise 02: MutantStack 🐍](#exercise-02-mutantstack-🐍) | Create a class `MutantStack` that inherits from `std::stack` and allows iteration through its elements. | `begin()`, `end()`                                  |
 
 ## Exercise Details 📖
+
+### Exercise 00: EasyFind 🔍
+
+**Purpose**: Implement a template function `easyfind` that takes a container and a value, and returns an iterator to the first occurrence of the value in the container.
+
+- **easyfind()**: Searches for the first occurrence of a given value in a container and returns an iterator to it.
+
+📝 *Hint*: Use STL algorithms like `std::find`.
+
+Here is a simple implementation of `easyfind`:
+
+```cpp
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
+
+// Define a custom exception class for when an element is not found
+class elementNotFound : public std::exception {
+public: 
+    // Override the what() method to provide a custom error message
+    const char * what() const _NOEXCEPT {
+        return ("Element not found in the template container");
+    }
+};
+
+// Template function to find an element in a container
+template <typename T> 
+void easyfind(T a, int b) {
+    // Use std::find to search for the element
+    if (std::find(a.begin(), a.end(), b) != a.end()) {
+        std::cout << "Found element " << b << " in the template container" << std::endl;
+    } else {
+        // Throw an exception if the element is not found
+        throw elementNotFound();
+    }
+}
+
+#endif
+```
 
 ### Exercise 01: Span 🏃‍♂️
 
@@ -22,15 +64,66 @@ Welcome to the exciting world of C++ Module 08! 🚀 In this module, we dive dee
 
 📝 *Hint*: Use a range of iterators to fill your Span efficiently.
 
-### Exercise 02: EasyFind 🔍
+Here is a simple implementation of the `Span` class:
 
-**Purpose**: Implement a template function `easyfind` that takes a container and a value, and returns an iterator to the first occurrence of the value in the container.
+#### Span.hpp
 
-- **easyfind()**: Searches for the first occurrence of a given value in a container and returns an iterator to it.
+```cpp
+#include <iostream>
+#include <exception>
+#include <algorithm>
+#include <vector> 
 
-📝 *Hint*: Use STL algorithms like `std::find`.
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
-### Exercise 03: MutantStack 🐍
+class Span {
+private: 
+    int _maxSize;  // Maximum size of the Span
+    std::vector<int> _numbers;  // Vector to store the numbers
+
+public:
+    Span(unsigned int N) : _maxSize(N) {}  // Parameterized constructor
+
+    void addNumber(unsigned int N) {
+        if (_numbers.size() < _maxSize) {
+            _numbers.push_back(N);
+        } else {
+            throw std::out_of_range("Span is full");
+        }
+    }
+
+    unsigned int shortestSpan() {
+        if (_numbers.size() <= 1) throw std::runtime_error("Not enough elements");
+        std::sort(_numbers.begin(), _numbers.end());
+        int minSpan = INT_MAX;
+        for (size_t i = 1; i < _numbers.size(); ++i) {
+            minSpan = std::min(minSpan, _numbers[i] - _numbers[i - 1]);
+        }
+        return minSpan;
+    }
+
+    unsigned int longestSpan() {
+        if (_numbers.size() <= 1) throw std::runtime_error("Not enough elements");
+        return *std::max_element(_numbers.begin(), _numbers.end()) - *std::min_element(_numbers.begin(), _numbers.end());
+    }
+};
+
+#endif
+```
+#### Explanation:
+
+1.  Header File (`Span.hpp`):
+-   Data Members:
+-   `_maxSize`: Maximum size of the vector.
+-   `_numbers`: Vector to store the numbers.
+-   Member Functions:
+-   `Span(unsigned int N)`: Constructor to initialize with the maximum size.
+-   `void addNumber(unsigned int N)`: Adds a single number to the Span. Throws an exception if the Span is full.
+-   `unsigned int shortestSpan()`: Finds the shortest span between the numbers.
+-   `unsigned int longestSpan()`: Finds the longest span between the numbers.
+
+### Exercise 02: MutantStack 🐍
 
 **Purpose**: Create a class `MutantStack` that inherits from `std::stack` and allows iteration through its elements.
 
@@ -38,6 +131,37 @@ Welcome to the exciting world of C++ Module 08! 🚀 In this module, we dive dee
 - **end()**: Returns an iterator to the end of the stack.
 
 📝 *Hint*: Utilize `std::deque` or `std::list` for underlying storage to support iteration.
+# 📝 C++ `MutantStack` and `std::stack` Deep Dive
+
+## Introduction
+
+In this module, we explore the `MutantStack` class, which extends the functionality of the standard C++ `std::stack` container. We'll explain the implementation details and custom iterators, using emojis to make it more engaging.
+
+## 🔍 What is `std::stack`?
+
+`std::stack` is a container adaptor that gives the programmer the functionality of a stack - a data structure with LIFO (Last In, First Out) semantics. `std::stack` is implemented using an underlying container, which can be any standard container that supports back insertion and back deletion, such as `std::vector`, `std::deque`, or `std::list`.
+
+### Key Features of `std::stack`
+- **Push**: Add an element to the top of the stack.
+- **Pop**: Remove the top element.
+- **Top**: Access the top element.
+- **Empty**: Check if the stack is empty.
+- **Size**: Get the number of elements in the stack.
+
+## 🛠️ Deep Implementation of `std::stack`
+
+Internally, `std::stack` uses an underlying container to store elements. By default, it uses `std::deque`, but this can be customized. The stack operations (`push`, `pop`, `top`, etc.) are translated into operations on the underlying container.
+
+### Example
+```cpp
+std::stack<int> stack;
+stack.push(1);  // Adds 1 to the stack
+stack.push(2);  // Adds 2 to the stack
+stack.pop();    // Removes the top element (2)
+int top = stack.top();  // Accesses the top element (1)
+```
+
+---
 
 # 📦 Famous Containers and Iterators in C++
 
@@ -45,67 +169,27 @@ C++ offers a rich set of containers and iterators that make managing collections
 
 ## Containers 🛠️
 
-### 1. `std::vector` 🚀
-- **Description**: A dynamic array that can grow in size.
-- **Use Case**: When you need a resizable array.
-- **Key Functions**: `push_back()`, `pop_back()`, `size()`, `capacity()`
-
-### 2. `std::list` 📝
-- **Description**: A doubly linked list.
-- **Use Case**: When you need fast insertion and deletion of elements.
-- **Key Functions**: `push_front()`, `push_back()`, `pop_front()`, `pop_back()`
-
-### 3. `std::deque` 🧱
-- **Description**: A double-ended queue that allows fast insertions and deletions at both ends.
-- **Use Case**: When you need efficient access and modification at both the front and back.
-- **Key Functions**: `push_front()`, `push_back()`, `pop_front()`, `pop_back()`
-
-### 4. `std::set` 🌳
-- **Description**: An ordered set that stores unique elements.
-- **Use Case**: When you need to maintain a collection of unique elements sorted in a specific order.
-- **Key Functions**: `insert()`, `erase()`, `find()`
-
-### 5. `std::map` 🗺️
-- **Description**: An ordered associative container that stores key-value pairs.
-- **Use Case**: When you need to associate unique keys with specific values.
-- **Key Functions**: `insert()`, `erase()`, `find()`, `operator[]`
-
-### 6. `std::unordered_set` 🌪️
-- **Description**: A hash table-based set that stores unique elements.
-- **Use Case**: When you need fast access to unique elements without regard to order.
-- **Key Functions**: `insert()`, `erase()`, `find()`
-
-### 7. `std::unordered_map` 🔍
-- **Description**: A hash table-based associative container that stores key-value pairs.
-- **Use Case**: When you need fast access to key-value pairs without regard to order.
-- **Key Functions**: `insert()`, `erase()`, `find()`, `operator[]`
+| Container                     | Description                                                                                     | Use Case                                     | Key Functions                                  |
+|-------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------|
+| `std::vector` 🚀              | A dynamic array that can grow in size.                                                          | When you need a resizable array.             | `push_back()`, `pop_back()`, `size()`, `capacity()` |
+| `std::list` 📝                | A doubly linked list.                                                                           | When you need fast insertion and deletion.   | `push_front()`, `push_back()`, `pop_front()`, `pop_back()` |
+| `std::deque` 🧱               | A double-ended queue that allows fast insertions and deletions at both ends.                    | When you need efficient access at both ends. | `push_front()`, `push_back()`, `pop_front()`, `pop_back()` |
+| `std::set` 🌳                 | An ordered set that stores unique elements.                                                     | When you need unique elements sorted.        | `insert()`, `erase()`, `find()`                   |
+| `std::map` 🗺️                | An ordered associative container that stores key-value pairs.                                   | When you need to associate keys with values. | `insert()`, `erase()`, `find()`, `operator[]`   |
+| `std::unordered_set` 🌪️      | A hash table-based set that stores unique elements.                                             | When you need fast access to unique elements.| `insert()`, `erase()`, `find()`                  |
+| `std::unordered_map` 🔍       | A hash table-based associative container that stores key-value pairs.                           | When you need fast access to key-value pairs.| `insert()`, `erase()`, `find()`, `operator[]`   |
 
 ## Iterators 🔄
 
-### 1. Input Iterator 🔄
-- **Description**: Reads data from the container.
-- **Use Case**: Single-pass algorithms that read data sequentially.
-- **Example**: `std::istream_iterator`
+| Iterator Type                  | Description                                                           | Use Case                                       | Example                                   |
+|--------------------------------|-----------------------------------------------------------------------|------------------------------------------------|-------------------------------------------|
+| **Input Iterator** 🔄          | Reads data from the container.                                        | Single-pass algorithms that read data.         | `std::istream_iterator`                  |
+| **Output Iterator** 🖋️        | Writes data to the container.                                         | Single-pass algorithms that write data.        | `std::ostream_iterator`                  |
+| **Forward Iterator** ➡️       | Reads or writes data, can move forward.                               | Algorithms that read/write data sequentially.  | `std::forward_list::iterator`            |
+| **Bidirectional Iterator** ↔️  | Reads or writes data, can move forward and backward.                  | Algorithms that traverse data in both directions. | `std::list::iterator`                     |
+| **Random Access Iterator** 🎲  | Reads or writes data, can move to any element in constant time.       | Algorithms that require fast access.           | `std::vector::iterator`, `std::deque::iterator` |
 
-### 2. Output Iterator 🖋️
-- **Description**: Writes data to the container.
-- **Use Case**: Single-pass algorithms that write data sequentially.
-- **Example**: `std::ostream_iterator`
-
-### 3. Forward Iterator ➡️
-- **Description**: Reads or writes data, can move forward.
-- **Use Case**: Algorithms that need to read/write data sequentially more than once.
-- **Example**: `std::forward_list::iterator`
-
-### 4. Bidirectional Iterator ↔️
-- **Description**: Reads or writes data, can move forward and backward.
-- **Use Case**: Algorithms that need to traverse data in both directions.
-- **Example**: `std::list::iterator`
-
-### 5. Random Access Iterator 🎲
-- **Description**: Reads or writes data, can move to any element in constant time.
-- **Use Case**: Algorithms that require fast access to any element.
-- **Example**: `std::vector::iterator`, `std::deque::iterator`
+---
 
 # 📚 The Standard Template Library (STL) in C++
 
