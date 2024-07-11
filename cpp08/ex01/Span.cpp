@@ -34,7 +34,7 @@ void Span::addNumber(unsigned int N){
 
 unsigned int Span::shortestSpan(){
     if (_numbers.size() <= 1){
-        throw(addNumberException());
+        throw(shortestLongest());
         return (0);
     }
     std::sort(_numbers.begin(), _numbers.end());
@@ -45,9 +45,21 @@ unsigned int Span::shortestSpan(){
     return (small);
 }
 
+void Span::addLargeNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end){
+    if (end - begin  <= _maxSize - static_cast<int>(_numbers.size())){
+        _numbers.insert(_numbers.begin() + _numbers.size() , begin, end);
+    for (int i = 0 ; i < static_cast<int>(_numbers.size()); i++){
+        std::cout << _numbers[i] << " ";
+    }
+    std::cout << std::endl;
+    }
+    else
+        throw(addNumberException());
+}
+
 unsigned int Span::longestSpan(){
     if (_numbers.size() <= 1){
-        throw(addNumberException());
+        throw(shortestLongest());
         return (0);
     }
     return(*std::max_element(_numbers.begin(), _numbers.end()) - *std::min_element(_numbers.begin(), _numbers.end()));

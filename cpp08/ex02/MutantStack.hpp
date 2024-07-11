@@ -28,8 +28,35 @@ class MutantStack : public std::stack <T>  {
         std::cout << "Mutant destructor called " << std::endl;
     }
 
-    typedef typename std::stack<T>::container_type::iterator 
-};
+    typedef typename std::stack<T>::container_type::iterator iterator;
+    typedef typename std::stack <T>::container_type::const_iterator const_iterator;
+    typedef typename std::stack <T>::container_type::const_reverse_iterator creviterator;
+    typedef typename std::stack <T>::container_type::reverse_iterator r_iterator;
 
+    iterator begin(){
+        return (this->c.begin());
+    }
+    iterator end(){
+        return(this->c.end());
+    }
+    const_iterator cbegin(){
+        return (this->c.cbegin());
+    }
+    const_iterator cend(){
+        return(this->c.cend());
+    }
+    creviterator crbegin(){
+        return (this->c.crbegin());
+    }
+    creviterator crend(){
+        return(this->c.crend());
+    }
+    r_iterator rbegin(){
+        return(this->c.rbegin());
+    }
+    r_iterator rend(){
+        return(this->c.rend());
+    }
+};
 
 #endif

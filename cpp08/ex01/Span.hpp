@@ -16,6 +16,7 @@ class Span {
         Span &operator=(Span &);
         Span(const Span &);
         void addNumber(unsigned int );
+        void addLargeNumbers(std::vector<int>::iterator,std::vector<int>::iterator);
         unsigned int longestSpan();
         unsigned int shortestSpan();
 
@@ -23,6 +24,13 @@ class Span {
         public: 
             const char *what() const _NOEXCEPT{
                 return ("addNumberException is thrown");
+            }
+    };
+
+    class shortestLongest: public std::exception {
+        public: 
+            const char *what() const _NOEXCEPT{
+                return ("No number stored/only one element");
             }
     };
 };
