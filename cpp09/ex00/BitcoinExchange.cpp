@@ -61,7 +61,9 @@ void BitcoinExchange::applyRates(){
 }
 
 std::string BitcoinExchange::inputDate(std::string &o){
+    int year = atoi(o.substr(0, 4).c_str());
     
+
 }
 
 char *BitcoinExchange::getFile() const{
