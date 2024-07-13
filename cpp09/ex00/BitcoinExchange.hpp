@@ -17,8 +17,8 @@ class BitcoinExchange{
         char *getFile() const;
         void getData();
         void applyRates();
-        std::string inputDate();
-        double inputValue();
+        std::string inputDate(std::string &);
+        double inputValue(std::string &);
 };
 
 #endif

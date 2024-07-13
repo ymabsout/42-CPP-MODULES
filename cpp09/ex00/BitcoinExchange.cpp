@@ -49,8 +49,8 @@ void BitcoinExchange::applyRates(){
     if (input != "date | value")
         throw("Invalid date | value format ");
     while (getline(inputFile, input) && !input.empty()){
-        std::string date = BitcoinExchange::inputDate();
-        double value = BitcoinExchange::inputValue();
+        std::string date = BitcoinExchange::inputDate(input);
+        double value = BitcoinExchange::inputValue(input);
         if (data.find(date) != data.end()){
             std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
         }
@@ -58,6 +58,10 @@ void BitcoinExchange::applyRates(){
             std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
         }
     }
+}
+
+std::string BitcoinExchange::inputDate(std::string &o){
+    
 }
 
 char *BitcoinExchange::getFile() const{
