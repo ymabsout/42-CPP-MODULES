@@ -49,21 +49,35 @@ void BitcoinExchange::applyRates(){
     if (input != "date | value")
         throw("Invalid date | value format ");
     while (getline(inputFile, input) && !input.empty()){
-        std::string date = BitcoinExchange::inputDate(input);
-        double value = BitcoinExchange::inputValue(input);
-        if (data.find(date) != data.end()){
-            std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
+        try{
+            std::string date = BitcoinExchange::inputDate(input);
+            if (date == "Error")
+                return ;
+            // double value = BitcoinExchange::inputValue(input);
+            // if (data.find(date) != data.end()){
+            //     std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
+            // }
+            // else {
+            //     std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
+            // }
         }
-        else {
-            std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
+        catch(char const * &e){
+            std::cout << e << std::endl;
         }
+
     }
 }
 
 std::string BitcoinExchange::inputDate(std::string &o){
+    std::cout << o << std::endl;
+    if (o[4] != '-' || o[7] != '-' || o[10] != ' '){
+        std::cout << "Error: bad input => " << o << std::endl;
+        return ("Error");
+    }
     int year = atoi(o.substr(0, 4).c_str());
-    
-
+    std::cout << year << std::endl;
+    // int month = atoi(o.substr())
+    return ("test");
 }
 
 char *BitcoinExchange::getFile() const{

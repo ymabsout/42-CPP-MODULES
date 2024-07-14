@@ -7,7 +7,7 @@ int main (int ac, char **av){
             be->getData();
             delete be;
         }
-        catch(std::string &e){
+        catch(char const* &e){
             std::cout << e << std::endl;
         }
     }
