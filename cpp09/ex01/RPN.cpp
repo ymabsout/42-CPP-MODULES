@@ -25,6 +25,8 @@ RPN & RPN::operator=(const RPN &objs){
 }
 
 void RPN::rpnStarter(){
+    if (!_input)
+        throw("Dont call RPN with default constructor");
     for (int i = 0 ; i < (int)strlen(_input); i++){
         if (isdigit(_input[i])){
             _numbersaver.push(_input[i] - '0');
