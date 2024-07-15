@@ -59,7 +59,7 @@ void BitcoinExchange::applyRates(){
                 }
                 else {
                     // std::cout << data.lower_bound(date)->first << std::endl;
-                    if (data.lower_bound(date) != data.begin() && std::prev(data.lower_bound(date))->second < data.lower_bound(date)->second)
+                    if (data.lower_bound(date) != data.begin() && std::prev(data.lower_bound(date))->first < data.lower_bound(date)->first)
                         std::cout << date <<  " => " << value << " = " << value * (std::prev(data.lower_bound(date))->second) << std::endl;
                     else
                         std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
