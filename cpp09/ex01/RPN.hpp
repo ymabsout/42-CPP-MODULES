@@ -14,7 +14,11 @@ class RPN {
         RPN(const RPN &);
         RPN &operator=(const RPN &);
         
-        static int 
+        void rpnStarter();
+        void addNumbers();
+        void subNumbers();
+        void mulNumbers();
+        void divNumbers();
 };
 
 

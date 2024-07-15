@@ -1,5 +1,5 @@
 CC = c++
-CFLAGS = -Wall -Wextra -Werror  -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp RPN.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = RPN
@@ -10,7 +10,7 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp RPN.hpp
-	$(CC) $(CFLAGS) -c $< - $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean : 
 	rm -rf $(OBJS)
