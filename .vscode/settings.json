@@ -66,6 +66,8 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "__tree": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "__memory": "cpp",
+        "filesystem": "cpp"
     }
 }

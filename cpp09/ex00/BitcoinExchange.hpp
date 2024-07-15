@@ -19,6 +19,7 @@ class BitcoinExchange{
         void applyRates();
         std::string inputDate(std::string &);
         double inputValue(std::string &);
+        void leapYearChecker(int &, std::string &);
 };
 
 #endif

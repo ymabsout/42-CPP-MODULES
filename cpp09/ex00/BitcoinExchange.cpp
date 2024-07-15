@@ -50,16 +50,24 @@ void BitcoinExchange::applyRates(){
         throw("Invalid date | value format ");
     while (getline(inputFile, input) && !input.empty()){
         try{
-            std::string date = BitcoinExchange::inputDate(input);
-            if (date == "Error")
-                return ;
-            // double value = BitcoinExchange::inputValue(input);
-            // if (data.find(date) != data.end()){
-            //     std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
-            // }
-            // else {
-            //     std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
-            // }
+            try{
+                std::string date = BitcoinExchange::inputDate(input);
+                double value = BitcoinExchange::inputValue(input);
+                // std::cout  << date << "----> " << value <<std::endl;
+                if (data.find(date) != data.end()){
+                    std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
+                }
+                else {
+                    // std::cout << data.lower_bound(date)->first << std::endl;
+                    if (data.lower_bound(date) != data.begin() && std::prev(data.lower_bound(date))->second < data.lower_bound(date)->second)
+                        std::cout << date <<  " => " << value << " = " << value * (std::prev(data.lower_bound(date))->second) << std::endl;
+                    else
+                        std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
+                }
+            }
+            catch(char const * &e){
+                std::cout << std::endl;
+            }
         }
         catch(char const * &e){
             std::cout << e << std::endl;
@@ -68,16 +76,84 @@ void BitcoinExchange::applyRates(){
     }
 }
 
-std::string BitcoinExchange::inputDate(std::string &o){
-    std::cout << o << std::endl;
-    if (o[4] != '-' || o[7] != '-' || o[10] != ' '){
-        std::cout << "Error: bad input => " << o << std::endl;
-        return ("Error");
+double BitcoinExchange::inputValue(std::string &o){
+    if (!isdigit(o[13]) && o[13] != '0'){
+        std::cout << "Incorrect value ";
+        throw("");
     }
-    int year = atoi(o.substr(0, 4).c_str());
-    std::cout << year << std::endl;
-    // int month = atoi(o.substr())
-    return ("test");
+    double value = std::atof(o.substr(13, o.size() - 13).c_str());
+    if (value < 0 || value > 1000){
+        std::cout << (value > 1000  ? "Error: too large a number." : "Error: too small a number.");
+        throw("");
+    }
+    if (o.substr(13, o.size() - 13).find_first_of(' ') != std::string::npos){
+        std::cout << "Error: Value has space";
+        throw("");
+    }
+    return (value);
+}
+
+void BitcoinExchange::leapYearChecker(int &year, std::string &o){
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) // leap year formula
+        return ;
+    std::cout << "Error : " << o << " => Leap year month not respected !";
+    throw("Error");
+}
+
+std::string BitcoinExchange::inputDate(std::string &o){
+    // std::cout << o << std::endl;
+    if (o[4] != '-' || o[7] != '-' || o.substr(10,3) != " | "){
+        std::cout << "Error: bad input => " << o;
+        throw("Error");
+    }
+    int year = 0;
+    int month = 0;
+    int day = 0;
+    for (int i = 0 ; i < 4 ; i++){
+        if (isdigit(o[i])){
+            year = year * 10 + (o[i] - '0');
+        }
+        else{
+            std::cout << o << " => Year invalid";
+            throw("");
+        }
+    }
+    for (int i = 5 ; i < 7; i ++){
+        if (isdigit(o[i])){
+           month = month * 10 + (o[i] - '0');
+           }
+       else{
+           std::cout << o <<" => Month invalid";
+           throw("");
+       }
+    }
+    if (month < 1 || month > 12){
+        std::cout << o<<" => Month invalid";
+        throw("");
+    }
+    for (int i = 0 ; i < 2; i ++){
+        if (isdigit(o[i])){
+           day = day * 10 + (o[i] - '0');
+           }
+       else{
+           std::cout << o <<" => Day invalid";
+           throw("");
+       }
+    }
+    if (day < 1 || day > 31){
+        std::cout << o <<" => Day invalid";
+        throw("");
+    }
+    if (month == 2){
+        if (day > 29){
+            std::cout << o <<" => February month has less than 29/28 days";
+            throw("Error");
+        }
+        if (day == 29)
+            BitcoinExchange::leapYearChecker(year, o);
+    }
+    // std::cout << "year is " << year << " , month is " << month << " , day is " << day << std::endl;
+    return (o.substr(0, 10));
 }
 
 char *BitcoinExchange::getFile() const{
