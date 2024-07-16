@@ -2,14 +2,28 @@
 #define PMERGEME_HPP
 #include <vector>
 #include <deque>
+#include <iostream>
+#include <chrono>
+
 
 class PmergeMe {
     private:
         std::vector < int > _vec;
         std::deque < int > _deq;
+
+        std::vector <int> _vecjacobSeq;
+        std::deque <int> _deqjacobSeq;
     public:
-    PmergeMe();
-    PmergeMe()
+        PmergeMe();
+        PmergeMe(std::vector < int > &, std::deque < int > &);
+        ~PmergeMe();
+        PmergeMe(const PmergeMe &);
+        PmergeMe &operator=(const PmergeMe &);
+        void vecFordJhonson();
+        void vecSortPairs(std::vector < std::pair < int ,int > >&, size_t);
+
+        void deqFordJhonson();
+        void GenerateJacobSequence(int);
 };
 
 #endif

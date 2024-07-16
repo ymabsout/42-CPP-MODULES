@@ -155,6 +155,7 @@ std::string BitcoinExchange::inputDate(std::string &o){
     // std::cout << "year is " << year << " , month is " << month << " , day is " << day << std::endl;
     return (o.substr(0, 10));
 }
+// add month checker
 
 char *BitcoinExchange::getFile() const{
     return (file);
