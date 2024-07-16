@@ -56,18 +56,35 @@ void PmergeMe::vecFordJhonson(){
     PairGroups.clear(); // destroy the vector of pairs
     MainChain.insert(MainChain.begin(), BChain[0]);
     BChain.erase(BChain.begin());
-    GenerateJacobSequence(static_cast<int>(BChain.size()));
+    GenerateJacobSequence(BChain.size());
+    _vecjacobSeq = MixedSequence();
     for (size_t i = 0 ; i < _vecjacobSeq.size(); i++)
         std::cout << _vecjacobSeq[i]  << std::endl;
 }
 
+std::vector < int > PmergeMe::MixedSequence(){
+    std::vector <int > saveSeq;
+    saveSeq.push_back(0);
+    saveSeq.push_back(1);
+    saveSeq.push_back(1);
+    for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++){
+        saveSeq.push_back(_vecjacobSeq[i]);
+        int depre = _vecjacobSeq[i] - 1;
+        while (std::find(saveSeq.begin(),saveSeq.end(), depre) == saveSeq.end()){
+            saveSeq.push_back(depre);
+            depre--;
+        }
+    }
+    saveSeq.erase(saveSeq.begin(), saveSeq.begin() +3 );
+    return (saveSeq);
+}
 
 void PmergeMe::GenerateJacobSequence(int size){
     _vecjacobSeq.push_back(0);
     _vecjacobSeq.push_back(1);
     _vecjacobSeq.push_back(1);
     // _vecjacobSeq.insert(_vecjacobSeq.end(), {0,1,1});
-    for (int i = 2 ; i < size + 2; i++)
+    for (int i = 2 ; i < size + 2 ; i++)
         _vecjacobSeq.push_back(_vecjacobSeq[i] + 2*_vecjacobSeq[i - 1]);
 }
 

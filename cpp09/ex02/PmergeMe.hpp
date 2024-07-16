@@ -23,7 +23,8 @@ class PmergeMe {
         void vecSortPairs(std::vector < std::pair < int ,int > >&, size_t);
 
         void deqFordJhonson();
-        void GenerateJacobSequence(int);
+        void GenerateJacobSequence(int );
+        std::vector< int > MixedSequence();
 };
 
 #endif
