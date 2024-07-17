@@ -26,7 +26,7 @@ class PmergeMe {
         void GenerateJacobSequence(int );
         std::vector< int > MixedSequence();
         void MergeBothChains(std::vector < int > &, std::vector <int> &);
-
+        int GenerateJacobSequenceRecursive(int );
         void deqFordJhonson();
 };
 

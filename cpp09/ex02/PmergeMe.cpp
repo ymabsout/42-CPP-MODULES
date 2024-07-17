@@ -46,9 +46,11 @@ void PmergeMe::vecFordJhonson(){
             PairGroups[i].second = tmp;
         }
     }
+
     vecSortPairs(PairGroups, PairGroups.size()); //recursively sort the pairs!!
     std::vector < int> MainChain;
     std::vector < int> BChain;
+
     for (int i = 0 ;i < static_cast<int>(PairGroups.size()); i++){
         MainChain.push_back(PairGroups[i].first);
         BChain.push_back(PairGroups[i].second);
@@ -56,12 +58,18 @@ void PmergeMe::vecFordJhonson(){
     PairGroups.clear(); // destroy the vector of pairs
     MainChain.insert(MainChain.begin(), BChain[0]);
     BChain.erase(BChain.begin());
+    std::cout << "----\n";
     GenerateJacobSequence(BChain.size());
     _vecjacobSeq = MixedSequence();
     // binary search using indexes from jacobstal
+    _vecjacobSeq.push_back(0);
+    _vecjacobSeq.push_back(1);
+    _vecjacobSeq.push_back(1);
     MergeBothChains(MainChain, BChain);
+    //insert the remaining element 
     if (saver != -1)
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), saver), saver );
+    
     for (int i = 0 ; i < static_cast <int>(MainChain.size()); i++)
         std::cout << MainChain[i] << " ";
     std::cout << std::endl;
@@ -69,11 +77,9 @@ void PmergeMe::vecFordJhonson(){
 
 void PmergeMe::MergeBothChains(std::vector<int> &MainChain, std::vector<int> &BChain){
     for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
-        int index = _vecjacobSeq[i];
-        int element = BChain[index - 2];
+        int element = BChain[_vecjacobSeq[i] - 2];
 
-        std::vector <int>::iterator pos = std::lower_bound(MainChain.begin(), MainChain.end(), element);
-        MainChain.insert(pos, element);
+        MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
     }
 }
 
@@ -99,8 +105,11 @@ void PmergeMe::GenerateJacobSequence(int size){
     _vecjacobSeq.push_back(1);
     _vecjacobSeq.push_back(1);
     // _vecjacobSeq.insert(_vecjacobSeq.end(), {0,1,1});
-    for (int i = 2 ; i < size + 2 ; i++)
-        _vecjacobSeq.push_back(_vecjacobSeq[i] + 2*_vecjacobSeq[i - 1]);
+    std::cout << size + 2 << "\"";
+    for (int i = 2 ; i < size + 2 ; i++){
+        std::cout << i << " \n";
+        _vecjacobSeq.push_back(_vecjacobSeq[i] + (2 * _vecjacobSeq[i - 1]));
+    }
 }
 
 

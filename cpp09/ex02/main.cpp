@@ -25,7 +25,7 @@ int main (int ac , char **av){
             start = clock(); // get starting time in clock_t struct
             sumContainer->vecFordJhonson();
             end = clock(); // get ending time in clock_t struct
-            int timeforalgo = static_cast<double>(end - start) * 1000000;
+            int timeforalgo = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
             std::cout << timeforalgo <<  std::endl;
         }
         catch (const char * &e){
