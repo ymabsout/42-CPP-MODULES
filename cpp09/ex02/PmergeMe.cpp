@@ -29,7 +29,6 @@ void PmergeMe::vecFordJhonson(){
     std::vector < std::pair < int , int > > PairGroups;
     int vecSize = _vec.size();
     int saver = -1;
-    (void)saver;
     if (vecSize % 2){
         saver = _vec[static_cast <int> (vecSize - 1)];
         _vec.pop_back();
@@ -61,6 +60,8 @@ void PmergeMe::vecFordJhonson(){
     _vecjacobSeq = MixedSequence();
     // binary search using indexes from jacobstal
     MergeBothChains(MainChain, BChain);
+    if (saver != -1)
+        MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), saver), saver );
     for (int i = 0 ; i < static_cast <int>(MainChain.size()); i++)
         std::cout << MainChain[i] << " ";
     std::cout << std::endl;
