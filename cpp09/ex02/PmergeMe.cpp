@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include <algorithm>
 
 PmergeMe::PmergeMe(){
     std::cout << "PmergeMe default constructor called " << std::endl;
@@ -28,7 +29,7 @@ void PmergeMe::vecFordJhonson(){
     std::vector < std::pair < int , int > > PairGroups;
     int vecSize = _vec.size();
     int saver = -1;
-
+    (void)saver;
     if (vecSize % 2){
         saver = _vec[static_cast <int> (vecSize - 1)];
         _vec.pop_back();
@@ -58,8 +59,21 @@ void PmergeMe::vecFordJhonson(){
     BChain.erase(BChain.begin());
     GenerateJacobSequence(BChain.size());
     _vecjacobSeq = MixedSequence();
-    for (size_t i = 0 ; i < _vecjacobSeq.size(); i++)
-        std::cout << _vecjacobSeq[i]  << std::endl;
+    // binary search using indexes from jacobstal
+    MergeBothChains(MainChain, BChain);
+    for (int i = 0 ; i < static_cast <int>(MainChain.size()); i++)
+        std::cout << MainChain[i] << " ";
+    std::cout << std::endl;
+}
+
+void PmergeMe::MergeBothChains(std::vector<int> &MainChain, std::vector<int> &BChain){
+    for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
+        int index = _vecjacobSeq[i];
+        int element = BChain[index - 2];
+
+        std::vector <int>::iterator pos = std::lower_bound(MainChain.begin(), MainChain.end(), element);
+        MainChain.insert(pos, element);
+    }
 }
 
 std::vector < int > PmergeMe::MixedSequence(){
@@ -67,7 +81,7 @@ std::vector < int > PmergeMe::MixedSequence(){
     saveSeq.push_back(0);
     saveSeq.push_back(1);
     saveSeq.push_back(1);
-    for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++){
+    for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++) {
         saveSeq.push_back(_vecjacobSeq[i]);
         int depre = _vecjacobSeq[i] - 1;
         while (std::find(saveSeq.begin(),saveSeq.end(), depre) == saveSeq.end()){
@@ -89,7 +103,7 @@ void PmergeMe::GenerateJacobSequence(int size){
 }
 
 
-void PmergeMe::vecSortPairs( std::vector < std::pair < int , int > > &Pairs, size_t n){
+void PmergeMe::vecSortPairs( std::vector < std::pair < int , int > > &Pairs, size_t n) {
     if (n <= 1){
         return ;
     }

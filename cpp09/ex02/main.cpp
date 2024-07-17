@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include <ctime>
 
 int main (int ac , char **av){
     if (ac < 2){
@@ -24,6 +25,8 @@ int main (int ac , char **av){
             start = clock(); // get starting time in clock_t struct
             sumContainer->vecFordJhonson();
             end = clock(); // get ending time in clock_t struct
+            int timeforalgo = static_cast<double>(end - start) * 1000000;
+            std::cout << timeforalgo <<  std::endl;
         }
         catch (const char * &e){
             std::cout << e << std::endl;
