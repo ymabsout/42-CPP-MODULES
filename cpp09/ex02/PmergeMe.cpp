@@ -74,9 +74,9 @@ void PmergeMe::vecFordJhonson(){
 
 
 void PmergeMe::MergeBothChains(std::vector<int> &MainChain, std::vector<int> &BChain){
-    for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
-        std::cout << (_vecjacobSeq[i] - 2) << std::endl;
-        std::cout << BChain[(_vecjacobSeq[i] - 2)] << std::endl;
+    for (int i = 0 ; i < static_cast <int>(BChain.size()) + 1; i++){
+        if (_vecjacobSeq[i] - 2 >= static_cast<int>(BChain.size()))
+            continue;
         int element = BChain[(_vecjacobSeq[i] - 2)];
 
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
