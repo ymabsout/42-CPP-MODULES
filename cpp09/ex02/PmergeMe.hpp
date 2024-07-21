@@ -14,8 +14,8 @@ class PmergeMe {
         std::vector <int> _vecjacobSeq;
         std::deque <int> _deqjacobSeq;
 
-    public:
         PmergeMe();
+    public:
         PmergeMe(std::vector < int > &, std::deque < int > &);
         ~PmergeMe();
         PmergeMe(const PmergeMe &);
@@ -23,10 +23,13 @@ class PmergeMe {
 
         void vecFordJhonson();
         void vecSortPairs(std::vector < std::pair < int ,int > >&, size_t);
+        void deqSortPairs(std::deque < std::pair < int ,int > >&, size_t);
         void GenerateJacobSequence(int );
+        void GenerateJacobSequenceDeq(int );
         std::vector< int > MixedSequence();
+        std::deque < int > MixedSequenceDeq();
         void MergeBothChains(std::vector < int > &, std::vector <int> &);
-        int GenerateJacobSequenceRecursive(int );
+        void MergeBothChainsdeq(std::deque < int > &, std::deque <int> &);
         void deqFordJhonson();
 };
 

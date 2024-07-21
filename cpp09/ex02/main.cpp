@@ -21,28 +21,29 @@ int main (int ac , char **av){
         PmergeMe * sumContainer = new PmergeMe(vecHolder, deqHolder);
         //vector
         try{
-            clock_t start, end;
-            start = clock(); // get starting time in clock_t struct
+            clock_t startvec, endvec, startdeq, enddeq;
+            std::cout << "Before : ";
+            for (int i = 0; i < static_cast<int>(vecHolder.size()); i++)
+                std::cout << vecHolder[i] << " ";
+            std::cout << std::endl;
+            startvec = clock(); // get starting time in clock_t struct
             sumContainer->vecFordJhonson();
-            end = clock(); // get ending time in clock_t struct
-            int timeforalgo = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000.0;
-            std::cout << timeforalgo <<  std::endl;
+            endvec = clock(); // get ending time in clock_t struct
+            double timeforalgovec = static_cast<double>(endvec - startvec) / (double)CLOCKS_PER_SEC * 1000000.0;
+            startdeq = clock();
+            // sumContainer->deqFordJhonson();
+            enddeq = clock();
+            double timeforalgodeq = static_cast<double>(enddeq - startdeq) / (double)CLOCKS_PER_SEC * 1000000.0;
+            std::cout << "After : ";
+            for (int i = 0 ; i < static_cast<int>(deqHolder.size()); i++)
+                std::cout << deqHolder[i] << " ";
+            std::cout << std::endl;
+            std::cout << "Time to process a range of " << vecHolder.size() << " elements with std::vector  : " << timeforalgovec << std::endl;
+            std::cout << "Time to process a range of " << deqHolder.size() << " elements with std::deque  : " << timeforalgodeq << std::endl;
         }
         catch (const char * &e){
             std::cout << e << std::endl;
         }
-
-        //deque
-        // try{
-        //     clock_t start, end;
-        //     start = clock(); // get starting time in clock_t struct
-        //     sumContainer->deqFordJhonson();
-        //     end = clock(); // get ending time in clock_t struct
-        // }
-        // catch (const char * &e){
-        //     std::cout << e << std::endl;
-        // }
-
     }
     catch (const char * &e){
         std::cout << e << std::endl;

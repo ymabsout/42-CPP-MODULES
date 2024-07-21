@@ -55,30 +55,29 @@ void PmergeMe::vecFordJhonson(){
         MainChain.push_back(PairGroups[i].first);
         BChain.push_back(PairGroups[i].second);
     }
+    
     PairGroups.clear(); // destroy the vector of pairs
     MainChain.insert(MainChain.begin(), BChain[0]);
     BChain.erase(BChain.begin());
     GenerateJacobSequence(BChain.size());
-    // std::cout << "----\n";
     _vecjacobSeq = MixedSequence();
-    // std::cout << "--------------\n"; 
     // binary search using indexes from jacobstal
-    _vecjacobSeq.push_back(0);
-    _vecjacobSeq.push_back(1);
-    _vecjacobSeq.push_back(1);
     MergeBothChains(MainChain, BChain);
     //insert the remaining element 
     if (saver != -1)
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), saver), saver );
-    
+    std::cout << "Sorted sequence using vector : ";
     for (int i = 0 ; i < static_cast <int>(MainChain.size()); i++)
         std::cout << MainChain[i] << " ";
     std::cout << std::endl;
 }
 
+
 void PmergeMe::MergeBothChains(std::vector<int> &MainChain, std::vector<int> &BChain){
     for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
-        int element = BChain[_vecjacobSeq[i] - 2];
+        std::cout << (_vecjacobSeq[i] - 2) << std::endl;
+        std::cout << BChain[(_vecjacobSeq[i] - 2)] << std::endl;
+        int element = BChain[(_vecjacobSeq[i] - 2)];
 
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
     }
@@ -91,7 +90,6 @@ std::vector < int > PmergeMe::MixedSequence(){
     saveSeq.push_back(1);
     int h  = 1;
     for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++) {
-        // std::cout << _vecjacobSeq[i] << std::endl;
         saveSeq.push_back(_vecjacobSeq[i]);
         int depre = _vecjacobSeq[i] - 1;
         while (depre > h){
@@ -118,9 +116,9 @@ void PmergeMe::GenerateJacobSequence(int size){
     }
 }
 
-void PmergeMe::vecSortPairs( std::vector < std::pair < int , int > > &Pairs, size_t n) {
+void PmergeMe::vecSortPairs(std::vector < std::pair < int , int > > &Pairs, size_t n) {
     if (n <= 1){
-        return ;
+        return ; 
     }
     vecSortPairs(Pairs, n - 1);
     std::pair < int , int > key = Pairs[n - 1];
@@ -130,4 +128,109 @@ void PmergeMe::vecSortPairs( std::vector < std::pair < int , int > > &Pairs, siz
         j-=1;
     }
     Pairs[j + 1] = key;
+}
+
+
+void PmergeMe::deqFordJhonson(){
+    std::deque < std::pair < int , int > > PairGroups;
+    int deqSize = _deq.size();
+    int saver = -1;
+    if (deqSize % 2){
+        saver = _deq[static_cast <int> (deqSize - 1)];
+        _deq.pop_back();
+        deqSize--;
+    }
+
+    for (int i = 0 ; i < deqSize; i += 2){
+        PairGroups.push_back(std::make_pair(_deq[i], _deq[i + 1]));
+    }
+
+    for (int i = 0 ; i < static_cast<int>(PairGroups.size()) ; i++){
+        if (PairGroups[i].first < PairGroups[i].second){
+            int tmp = PairGroups[i].first;
+            PairGroups[i].first = PairGroups[i].second;
+            PairGroups[i].second = tmp;
+        }
+    }
+
+    deqSortPairs(PairGroups, PairGroups.size()); //recursively sort the pairs!!
+    std::deque < int> MainChain;
+    std::deque < int> BChain;
+
+    for (int i = 0 ;i < static_cast<int>(PairGroups.size()); i++){
+        MainChain.push_back(PairGroups[i].first);
+        BChain.push_back(PairGroups[i].second);
+    }
+    PairGroups.clear(); // destroy the vector of pairs
+    MainChain.insert(MainChain.begin(), BChain[0]);
+    BChain.erase(BChain.begin());
+    GenerateJacobSequence(BChain.size());
+    _deqjacobSeq = MixedSequenceDeq();
+    // binary search using indexes from jacobstal
+    _deqjacobSeq.push_back(0);
+    _deqjacobSeq.push_back(1);
+    _deqjacobSeq.push_back(1);
+    MergeBothChainsdeq(MainChain, BChain);
+    //insert the remaining element 
+    if (saver != -1)
+        MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), saver), saver );
+    std::cout << "Sorted sequence using deque : ";
+    for (int i = 0 ; i < static_cast <int>(MainChain.size()); i++)
+        std::cout << MainChain[i] << " ";
+    std::cout << std::endl;
+}
+
+void PmergeMe::deqSortPairs(std::deque<std::pair<int, int> > &Pairs, size_t n){
+    if (n <= 1){
+        return ; 
+    }
+    deqSortPairs(Pairs, n - 1);
+    std::pair < int , int > key = Pairs[n - 1];
+    int j = n - 2;
+    while (j >= 0 && Pairs[j].first > key.first){
+        Pairs[j + 1] = Pairs[j];
+        j-=1;
+    }
+    Pairs[j + 1] = key;
+}
+
+void PmergeMe::GenerateJacobSequenceDeq(int size){
+    _deqjacobSeq.push_back(0);
+    _deqjacobSeq.push_back(1);
+    _deqjacobSeq.push_back(1);
+
+    for (int i = 2 ; i < size + 2 ; i++){
+        _deqjacobSeq.push_back(_deqjacobSeq[i] + (2 * _deqjacobSeq[i - 1]));
+        if (_deqjacobSeq[i] > size){
+            _deqjacobSeq.erase(_deqjacobSeq.begin() + i);
+            break;
+        }
+    }
+}
+
+std::deque < int > PmergeMe::MixedSequenceDeq(){
+    std::deque <int > saveSeq;
+    saveSeq.push_back(0);
+    saveSeq.push_back(1);
+    saveSeq.push_back(1);
+    int h  = 1;
+    for (int i = 3 ; i < static_cast<int>(_deqjacobSeq.size()); i++) {
+        saveSeq.push_back(_deqjacobSeq[i]);
+        int depre = _deqjacobSeq[i] - 1;
+        while (depre > h){
+            saveSeq.push_back(depre);
+            depre--;
+        }
+        h = _deqjacobSeq[i];
+    }
+    saveSeq.erase(saveSeq.begin(), saveSeq.begin() + 3);
+    return (saveSeq);
+}
+
+void PmergeMe::MergeBothChainsdeq(std::deque<int> &MainChain, std::deque<int> &BChain){
+    for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
+        int element = BChain[_deqjacobSeq[i] - 2];
+
+        MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
+    }
 }
