@@ -1,4 +1,6 @@
 #include "BitcoinExchange.hpp"
+#include <iostream>
+#include <iterator>
 
 BitcoinExchange::BitcoinExchange(){
     std::cout << "BitcoinExchange constructor called" << std::endl;
@@ -58,9 +60,12 @@ void BitcoinExchange::applyRates(){
                     std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
                 }
                 else {
-                    // std::cout << data.lower_bound(date)->first << std::endl;
                     if (data.lower_bound(date) != data.begin() && std::prev(data.lower_bound(date))->first < data.lower_bound(date)->first)
                         std::cout << date <<  " => " << value << " = " << value * (std::prev(data.lower_bound(date))->second) << std::endl;
+                    else if (data.lower_bound(date) == data.begin())
+                        std::cout << date <<  " => " << value << " = " << value * data.begin()->second << std::endl;
+                    else if (data.lower_bound(date) == data.end())
+                        std::cout << date <<  " => " << value << " = " << value * std::prev(data.end())->second << std::endl;
                     else
                         std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
                 }
