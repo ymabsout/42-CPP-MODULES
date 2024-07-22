@@ -9,7 +9,7 @@ PmergeMe::~PmergeMe(){
     std::cout << "PmergeMe default destructor called " << std::endl;
 }
 
-PmergeMe::PmergeMe(const PmergeMe &objs): _vec(objs._vec), _deq(objs._deq){
+PmergeMe::PmergeMe(const PmergeMe &objs): _vec(objs._vec), _deq(objs._deq), _deqjacobSeq(objs._deqjacobSeq), _vecjacobSeq(objs._vecjacobSeq){
     std::cout << "PmergeMe copy constructor called " << std::endl;
 }
 
@@ -17,6 +17,8 @@ PmergeMe &PmergeMe::operator=(const PmergeMe&objs){
     if (this != &objs){
         _vec = objs._vec;
         _deq = objs._deq;
+        _vecjacobSeq = objs._vecjacobSeq;
+        _deqjacobSeq = objs._deqjacobSeq;
     }
     return (*this);
 }
