@@ -17,17 +17,17 @@
 DiamondTrap::DiamondTrap() {
     _name = "Default";
     ClapTrap::_name = "Default_clap_name";
-    _hitPoints = FragTrap::_hitPoints;
-    _EnergyPoints = ScavTrap::_EnergyPoints;
-    _AttackDamage = FragTrap::_AttackDamage;
+    FragTrap::_hitPoints = 100;
+    ScavTrap::_EnergyPoints = 50;
+    FragTrap::_AttackDamage = 30;
     std::cout << "DiamondTrap Default Constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name"){
+DiamondTrap::DiamondTrap(const std::string &name): ClapTrap(name + "_clap_name") {
     _name = name;
-    _hitPoints = FragTrap::_hitPoints;
-    _EnergyPoints = ScavTrap::_EnergyPoints;
-    _AttackDamage = FragTrap::_AttackDamage;
+    FragTrap::_hitPoints = 100;
+    ScavTrap::_EnergyPoints = 50;
+    FragTrap::_AttackDamage = 30;
     std::cout << _name << " Constructor with a name called" << std::endl;
 }
 
