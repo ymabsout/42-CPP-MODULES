@@ -133,8 +133,7 @@ void PmergeMe::vecSortPairs(std::vector < std::pair < int , int > > &Pairs, size
 }
 
 
-
- // deque implementation
+// deque implementation
 void PmergeMe::deqFordJhonson(){
     std::deque < std::pair < int , int > > PairGroups;
     int deqSize = _deq.size();
@@ -170,7 +169,7 @@ void PmergeMe::deqFordJhonson(){
     BChain.erase(BChain.begin());
     GenerateJacobSequence(BChain.size());
     _deqjacobSeq = MixedSequenceDeq();
-    // binary search using indexes from jacobstal
+    // insert the pending chain in the mainchain
     MergeBothChainsdeq(MainChain, BChain);
     //insert the remaining element 
     if (saver != -1)

@@ -82,7 +82,7 @@ double BitcoinExchange::inputValue(std::string &o){
         throw("");
     }
     double value = std::atof(o.substr(13, o.size() - 13).c_str());
-    if (value < 0 || value > 1000){
+    if (value < 0 || value > 1000.00){
         std::cout << (value > 1000  ? "Error: too large a number." : "Error: too small a number.");
         throw("");
     }
@@ -121,8 +121,8 @@ std::string BitcoinExchange::inputDate(std::string &o){
     for (int i = 5 ; i < 7; i ++){
         if (isdigit(o[i])){
            month = month * 10 + (o[i] - '0');
-           }
-       else{
+        }
+       else {
            std::cout << o <<" => Month invalid";
            throw("");
        }
@@ -131,7 +131,7 @@ std::string BitcoinExchange::inputDate(std::string &o){
         std::cout << o<<" => Month invalid";
         throw("");
     }
-    for (int i = 0 ; i < 2; i ++){
+    for (int i = 8 ; i < 10; i ++){
         if (isdigit(o[i])){
            day = day * 10 + (o[i] - '0');
            }
@@ -152,10 +152,19 @@ std::string BitcoinExchange::inputDate(std::string &o){
         if (day == 29)
             BitcoinExchange::leapYearChecker(year, o);
     }
-    // std::cout << "year is " << year << " , month is " << month << " , day is " << day << std::endl;
+    MonthDayChecker(day, month);
     return (o.substr(0, 10));
 }
-// add month checker
+
+void BitcoinExchange::MonthDayChecker(int &day, int &month){
+    if (month == 4 || month == 6 || month == 9 || month == 11){
+        if (day > 30){
+            std::cout << "Error : " << month << " => Month has less than 30 days";
+            throw("Error");
+        }
+    }
+}
+
 
 char *BitcoinExchange::getFile() const{
     return (file);

@@ -20,6 +20,7 @@ class BitcoinExchange{
         std::string inputDate(std::string &);
         double inputValue(std::string &);
         void leapYearChecker(int &, std::string &);
-};
+        void MonthDayChecker(int &day, int &month);
+    };
 
 #endif

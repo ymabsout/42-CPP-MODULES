@@ -9,7 +9,7 @@ int main (int ac , char **av){
         std::vector <int> vecHolder;
         std::deque< int > deqHolder;
         for (int i = 1 ; i < ac; i++){
-            for (size_t j = 0 ; j < strlen(av[i]); j++){
+            for (size_t j = 0 ; j < strlen( av[i]); j++){
                 if (!isdigit(av[i][j])){
                     throw("Non digit element in the arguments");
                 }
