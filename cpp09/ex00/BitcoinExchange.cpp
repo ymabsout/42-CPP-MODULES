@@ -57,15 +57,15 @@ void BitcoinExchange::applyRates(){
                 double value = BitcoinExchange::inputValue(input);
                 // std::cout  << date << "----> " << value <<std::endl;
                 if (data.find(date) != data.end()){
-                    std::cout << date << " => " << value << " = " << value * data[date]  << std::endl;
+                    std::cout << std::fixed << date << " => " << value << " = " << value * data[date] << std::endl;
                 }
                 else {
                     if (data.lower_bound(date) != data.begin() && std::prev(data.lower_bound(date))->first < data.lower_bound(date)->first)
-                        std::cout << date <<  " => " << value << " = " << value * (std::prev(data.lower_bound(date))->second) << std::endl;
+                        std::cout << date <<  " => " << value << " = " << double(value * (std::prev(data.lower_bound(date))->second)) << std::endl;
                     else if (data.lower_bound(date) == data.begin())
                         std::cout << date <<  " => " << value << " = " << value * data.begin()->second << std::endl;
                     else if (data.lower_bound(date) == data.end())
-                        std::cout << date <<  " => " << value << " = " << value * std::prev(data.end())->second << std::endl;
+                        std::cout << date <<  " => " << value << " = " << double(value * std::prev(data.end())->second) << std::endl;
                     else
                         std::cout << date <<  " => " << value << " = " << value * (data.lower_bound(date)->second) << std::endl;
                 }
