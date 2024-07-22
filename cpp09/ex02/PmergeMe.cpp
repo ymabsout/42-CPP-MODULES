@@ -61,7 +61,6 @@ void PmergeMe::vecFordJhonson(){
     BChain.erase(BChain.begin());
     GenerateJacobSequence(BChain.size());
     _vecjacobSeq = MixedSequence();
-    // binary search using indexes from jacobstal
     MergeBothChains(MainChain, BChain);
     //insert the remaining element 
     if (saver != -1)
@@ -74,13 +73,27 @@ void PmergeMe::vecFordJhonson(){
 
 
 void PmergeMe::MergeBothChains(std::vector<int> &MainChain, std::vector<int> &BChain){
-    for (int i = 0 ; i < static_cast <int>(BChain.size()) + 1; i++){
+    int verifyInsert = 0;
+    for (int i = 0 ; i < static_cast <int>(_vecjacobSeq.size()); i++){
+        if (verifyInsert >= static_cast<int>(BChain.size())){ // Dont loop through the whole sequence
+            break;
+        }
         if (_vecjacobSeq[i] - 2 >= static_cast<int>(BChain.size()))
             continue;
         int element = BChain[(_vecjacobSeq[i] - 2)];
 
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
+        verifyInsert++;
     }
+}
+
+void PmergeMe::GenerateJacobSequence(int size){
+    _vecjacobSeq.push_back(0);
+    _vecjacobSeq.push_back(1);
+    _vecjacobSeq.push_back(1);
+
+    for (int i = 2 ; i < size + 2 ; i++)
+        _vecjacobSeq.push_back(_vecjacobSeq[i] + (2 * _vecjacobSeq[i - 1]));
 }
 
 std::vector < int > PmergeMe::MixedSequence(){
@@ -91,29 +104,18 @@ std::vector < int > PmergeMe::MixedSequence(){
     int h  = 1;
     for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++) {
         saveSeq.push_back(_vecjacobSeq[i]);
-        int depre = _vecjacobSeq[i] - 1;
+        int depre = saveSeq.back() - 1;
         while (depre > h){
             saveSeq.push_back(depre);
             depre--;
+        }
+        if (h > static_cast<int>(_vec.size())){
+            break;
         }
         h = _vecjacobSeq[i];
     }
     saveSeq.erase(saveSeq.begin(), saveSeq.begin() + 3);
     return (saveSeq);
-}
-
-void PmergeMe::GenerateJacobSequence(int size){
-    _vecjacobSeq.push_back(0);
-    _vecjacobSeq.push_back(1);
-    _vecjacobSeq.push_back(1);
-
-    for (int i = 2 ; i < size + 2 ; i++){
-        _vecjacobSeq.push_back(_vecjacobSeq[i] + (2 * _vecjacobSeq[i - 1]));
-        if (_vecjacobSeq[i] > size){
-            _vecjacobSeq.erase(_vecjacobSeq.begin() + i);
-            break;
-        }
-    }
 }
 
 void PmergeMe::vecSortPairs(std::vector < std::pair < int , int > > &Pairs, size_t n) {
@@ -131,6 +133,8 @@ void PmergeMe::vecSortPairs(std::vector < std::pair < int , int > > &Pairs, size
 }
 
 
+
+ // deque implementation
 void PmergeMe::deqFordJhonson(){
     std::deque < std::pair < int , int > > PairGroups;
     int deqSize = _deq.size();
@@ -167,9 +171,6 @@ void PmergeMe::deqFordJhonson(){
     GenerateJacobSequence(BChain.size());
     _deqjacobSeq = MixedSequenceDeq();
     // binary search using indexes from jacobstal
-    _deqjacobSeq.push_back(0);
-    _deqjacobSeq.push_back(1);
-    _deqjacobSeq.push_back(1);
     MergeBothChainsdeq(MainChain, BChain);
     //insert the remaining element 
     if (saver != -1)
@@ -199,13 +200,8 @@ void PmergeMe::GenerateJacobSequenceDeq(int size){
     _deqjacobSeq.push_back(1);
     _deqjacobSeq.push_back(1);
 
-    for (int i = 2 ; i < size + 2 ; i++){
+    for (int i = 2 ; i < size + 2 ; i++)
         _deqjacobSeq.push_back(_deqjacobSeq[i] + (2 * _deqjacobSeq[i - 1]));
-        if (_deqjacobSeq[i] > size){
-            _deqjacobSeq.erase(_deqjacobSeq.begin() + i);
-            break;
-        }
-    }
 }
 
 std::deque < int > PmergeMe::MixedSequenceDeq(){
@@ -214,23 +210,33 @@ std::deque < int > PmergeMe::MixedSequenceDeq(){
     saveSeq.push_back(1);
     saveSeq.push_back(1);
     int h  = 1;
-    for (int i = 3 ; i < static_cast<int>(_deqjacobSeq.size()); i++) {
-        saveSeq.push_back(_deqjacobSeq[i]);
-        int depre = _deqjacobSeq[i] - 1;
+    for (int i = 3 ; i < static_cast<int>(_vecjacobSeq.size()); i++) {
+        saveSeq.push_back(_vecjacobSeq[i]);
+        int depre = saveSeq.back() - 1;
         while (depre > h){
             saveSeq.push_back(depre);
             depre--;
         }
-        h = _deqjacobSeq[i];
+        if (h > static_cast<int>(_vec.size())){
+            break;
+        }
+        h = _vecjacobSeq[i];
     }
     saveSeq.erase(saveSeq.begin(), saveSeq.begin() + 3);
     return (saveSeq);
 }
 
 void PmergeMe::MergeBothChainsdeq(std::deque<int> &MainChain, std::deque<int> &BChain){
-    for (int i = 0 ; i < static_cast <int>(BChain.size()); i++){
-        int element = BChain[_deqjacobSeq[i] - 2];
+    int verifyInsert = 0;
+    for (int i = 0 ; i < static_cast <int>(_vecjacobSeq.size()); i++){
+        if (verifyInsert >= static_cast<int>(BChain.size())){ // Dont loop through the whole sequence
+            break;
+        }
+        if (_vecjacobSeq[i] - 2 >= static_cast<int>(BChain.size()))
+            continue;
+        int element = BChain[(_vecjacobSeq[i] - 2)];
 
         MainChain.insert(std::lower_bound(MainChain.begin(), MainChain.end(), element), element);
+        verifyInsert++;
     }
 }
