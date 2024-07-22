@@ -1,5 +1,5 @@
 CC = c++ 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = PmergeMe

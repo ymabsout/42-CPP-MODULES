@@ -166,7 +166,7 @@ void PmergeMe::deqFordJhonson(){
         BChain.push_back(PairGroups[i].second);
     }
     PairGroups.clear(); // destroy the vector of pairs
-    MainChain.insert(MainChain.begin(), BChain[0]);
+    MainChain.push_front(BChain[0]);
     BChain.erase(BChain.begin());
     GenerateJacobSequence(BChain.size());
     _deqjacobSeq = MixedSequenceDeq();
