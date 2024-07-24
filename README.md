@@ -15,7 +15,7 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | 06  | [Module 06](cpp06/)                    | C++ Casts              | Dynamic, static, reinterpret, and const casts                                 | C++      | ✅ 100   | Casting types in C++                  |
 | 07  | [Module 07](cpp07/)                    | C++ Templates          | Function templates, class templates, template specialization                  | C++      | ✅ 100   | Templates and generic programming     |
 | 08  | [Module 08](cpp08/)                    | C++ Iterators          | Templated Containers, Iterators, Algorithms                  | C++      | ✅ 100   | Advanced use of templates and algorithms     |
-
+| 09  | [Module 09](cpp09/)                    | Standard Template Library (STL) | Containers, algorithms, iterators, container adaptors                         | C++      | ✅ 100   | Standard Template Library concepts    |
 ---
 
 ## Exercises Overview 📝
@@ -99,6 +99,14 @@ This repository contains the source code for the 42 Cpp modules. Each module is 
 | **[Exercise 00: Easy find](cpp08/ex00/)**        | Implementing a function template easyfind to find an integer in a container |
 | **[Exercise 01: Span](cpp08/ex01/)**             | Developing a Span class to manage a collection of integers and find the shortest and longest spans |
 | **[Exercise 02: Mutated abomination](cpp08/ex02/)** | Creating a MutantStack class that makes a stack iterable                   |
+
+### Module 09: Standard Template Library (STL)
+
+| Exercise                                         | Objectives                                                                 |
+|--------------------------------------------------|----------------------------------------------------------------------------|
+| **[Exercise 00: Bitcoin Exchange](cpp09/ex00/)** | Creating a program to output the value of bitcoin on specific dates using a CSV database |
+| **[Exercise 01: Reverse Polish Notation](cpp09/ex01/)** | Implementing a program to evaluate mathematical expressions in Reverse Polish Notation |
+| **[Exercise 02: PmergeMe](cpp09/ex02/)**         | Developing a program to sort a sequence of integers using the merge-insert sort algorithm |
 ## Regulations
 
 - [Compiling](./REGULATIONS.md#compiling)
